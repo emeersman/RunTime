@@ -19,6 +19,8 @@
 		D8A1B97018BAFAFC0097559B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B95818BAFAFB0097559B /* UIKit.framework */; };
 		D8A1B97818BAFAFC0097559B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B97618BAFAFC0097559B /* InfoPlist.strings */; };
 		D8A1B97A18BAFAFC0097559B /* RunTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B97918BAFAFC0097559B /* RunTimeTests.m */; };
+		D8A1B98618BAFB920097559B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B98518BAFB920097559B /* Main.storyboard */; };
+		D8A1B98818BB00170097559B /* heyyeah.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B98718BB00170097559B /* heyyeah.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		D8A1B97518BAFAFC0097559B /* RunTimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RunTimeTests-Info.plist"; sourceTree = "<group>"; };
 		D8A1B97718BAFAFC0097559B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8A1B97918BAFAFC0097559B /* RunTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunTimeTests.m; sourceTree = "<group>"; };
+		D8A1B98518BAFB920097559B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D8A1B98718BB00170097559B /* heyyeah.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = heyyeah.jpg; path = ../../../Documents/RuntimeBackup/Runtime/heyyeah.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		D8A1B94818BAFAFB0097559B = {
 			isa = PBXGroup;
 			children = (
+				D8A1B98518BAFB920097559B /* Main.storyboard */,
 				D8A1B95A18BAFAFB0097559B /* RunTime */,
 				D8A1B97318BAFAFC0097559B /* RunTimeTests */,
 				D8A1B95318BAFAFB0097559B /* Frameworks */,
@@ -107,6 +112,7 @@
 		D8A1B95A18BAFAFB0097559B /* RunTime */ = {
 			isa = PBXGroup;
 			children = (
+				D8A1B98718BB00170097559B /* heyyeah.jpg */,
 				D8A1B96318BAFAFB0097559B /* AppDelegate.h */,
 				D8A1B96418BAFAFB0097559B /* AppDelegate.m */,
 				D8A1B96618BAFAFB0097559B /* Images.xcassets */,
@@ -219,8 +225,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A1B98618BAFB920097559B /* Main.storyboard in Resources */,
 				D8A1B95F18BAFAFB0097559B /* InfoPlist.strings in Resources */,
 				D8A1B96718BAFAFB0097559B /* Images.xcassets in Resources */,
+				D8A1B98818BB00170097559B /* heyyeah.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
