@@ -97,23 +97,23 @@
             </objects>
             <point key="canvasLocation" x="1208" y="456"/>
         </scene>
-        <!--Table View Controller - Saved Timers-->
+        <!--Saved Timers View Controller - Saved Timers-->
         <scene sceneID="YdM-js-JDc">
             <objects>
-                <tableViewController id="6PY-sh-Nnb" sceneMemberID="viewController">
+                <tableViewController id="6PY-sh-Nnb" customClass="SavedTimersViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ReF-Dc-OFJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="n1g-GE-DOt" style="IBUITableViewCellStyleDefault" id="CEk-fZ-o42">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEk-fZ-o42" id="FH1-8l-Ick">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1g-GE-DOt">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1g-GE-DOt">
                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pKt-0M-xgD">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKt-0M-xgD" id="Vdd-ye-fAj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -135,7 +135,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SdF-63-QMi">
-                                <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SdF-63-QMi" id="Cnl-A7-cHC">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -160,10 +160,10 @@
             </objects>
             <point key="canvasLocation" x="1208" y="-240"/>
         </scene>
-        <!--View Controller - Set Timer-->
+        <!--Set Timer View Controller - Set Timer-->
         <scene sceneID="G52-2e-KRU">
             <objects>
-                <viewController id="kv3-jb-Rpb" sceneMemberID="viewController">
+                <viewController id="kv3-jb-Rpb" customClass="SetTimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cXx-cf-Jew"/>
                         <viewControllerLayoutGuide type="bottom" id="y1U-ZR-xbI"/>
@@ -236,13 +236,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set Timer" id="GgM-uK-abc">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="dXf-ys-Wwm"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="dXf-ys-Wwm">
+                            <connections>
+                                <segue destination="hL7-s2-myd" kind="push" id="IC0-KL-EBA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save Timer" id="csA-3g-2v1">
                             <connections>
+                                <action selector="saveNewTimer:" destination="kv3-jb-Rpb" id="qHz-j8-IHE"/>
                                 <segue destination="6PY-sh-Nnb" kind="push" id="U3Z-iC-TmJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="timerName" destination="mme-IB-VUd" id="aH7-jQ-x4f"/>
+                        <outlet property="timerRepeat" destination="Q0C-kc-zhe" id="oTr-aU-6D8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fg6-MZ-cUC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,7 +360,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3m7-3d-3Oc">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3m7-3d-3Oc" id="g05-2f-IMT">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -520,6 +529,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="8j7-rd-9yk"/>
+        <segue reference="IC0-KL-EBA"/>
         <segue reference="e70-9q-hMJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,4 +12,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+-(NSArray*) getAllSavedTimers;
+
 @end
