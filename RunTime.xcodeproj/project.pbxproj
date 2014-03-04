@@ -22,6 +22,7 @@
 		D8A1B98618BAFB920097559B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B98518BAFB920097559B /* Main.storyboard */; };
 		D8A1B98C18BC44790097559B /* heman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B98B18BC44790097559B /* heman.jpg */; };
 		D8A1B98F18BC4CAF0097559B /* QuickTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B98E18BC4CAF0097559B /* QuickTimerViewController.m */; };
+		D8A1B99118C4FF130097559B /* skeletor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8A1B99018C4FF130097559B /* skeletor.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		D8A1B98B18BC44790097559B /* heman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = heman.jpg; sourceTree = SOURCE_ROOT; };
 		D8A1B98D18BC4CAF0097559B /* QuickTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickTimerViewController.h; sourceTree = "<group>"; };
 		D8A1B98E18BC4CAF0097559B /* QuickTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickTimerViewController.m; sourceTree = "<group>"; };
+		D8A1B99018C4FF130097559B /* skeletor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skeletor.jpg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		D8A1B95A18BAFAFB0097559B /* RunTime */ = {
 			isa = PBXGroup;
 			children = (
+				D8A1B99018C4FF130097559B /* skeletor.jpg */,
 				D8A1B98B18BC44790097559B /* heman.jpg */,
 				D8A1B96318BAFAFB0097559B /* AppDelegate.h */,
 				D8A1B96418BAFAFB0097559B /* AppDelegate.m */,
@@ -230,6 +233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A1B99118C4FF130097559B /* skeletor.jpg in Resources */,
 				D8A1B98618BAFB920097559B /* Main.storyboard in Resources */,
 				D8A1B95F18BAFAFB0097559B /* InfoPlist.strings in Resources */,
 				D8A1B96718BAFAFB0097559B /* Images.xcassets in Resources */,
