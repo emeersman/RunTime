@@ -25,7 +25,7 @@ BOOL started = NO;
 
 int alarmOn = 0;
 
-//SystemSoundID _alarmSound;
+SystemSoundID alarmSound;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,9 +33,6 @@ int alarmOn = 0;
     if (self) {
         // Custom initialization
         
-        //load the sound
-        //NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
-        //AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &_alarmSound);
     }
     
     return self;
@@ -47,6 +44,10 @@ int alarmOn = 0;
     self.timerMin.delegate = self;
     self.timerSec.delegate = self;
     self.timerHr.delegate = self;
+    
+    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
+    
     //_titleImage.image = [UIImage imageNamed:@"heman.jpg"];
 }
 
@@ -176,14 +177,14 @@ int alarmOn = 0;
                 
                 if (alarmOn == 0) //readd this statement if we only want the alarm to sound once
                 {
-                    SystemSoundID _alarmSound;
+                    //SystemSoundID alarmSound;
                 
                     //separate loading the sounds into it's own file and just keep it loaded until
                     //exit the app?
                 
-                    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
-                    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &_alarmSound);
-                    AudioServicesPlayAlertSound(_alarmSound);
+                    //NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+                    //AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
+                    AudioServicesPlayAlertSound(alarmSound);
                     
                     alarmOn++;
                 }
