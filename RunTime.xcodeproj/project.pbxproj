@@ -28,6 +28,8 @@
 		D8A1B99A18C598A80097559B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B99918C598A80097559B /* CoreData.framework */; };
 		D8A1B99D18C598F40097559B /* RunTimeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99B18C598F40097559B /* RunTimeModel.xcdatamodeld */; };
 		D8A1B9A018C59A9C0097559B /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99F18C59A9C0097559B /* Timer.m */; };
+		DADF1B3418CAB2B600126226 /* AYB.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3318CAB2B600126226 /* AYB.caf */; };
+		DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3518CAB45900126226 /* alarmSound.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		D8A1B99C18C598F40097559B /* RunTimeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTimeModel.xcdatamodel; sourceTree = "<group>"; };
 		D8A1B99E18C59A9C0097559B /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		D8A1B99F18C59A9C0097559B /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		DADF1B3318CAB2B600126226 /* AYB.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AYB.caf; sourceTree = SOURCE_ROOT; };
+		DADF1B3518CAB45900126226 /* alarmSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarmSound.caf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 		D8A1B99818C598190097559B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DADF1B3518CAB45900126226 /* alarmSound.caf */,
+				DADF1B3318CAB2B600126226 /* AYB.caf */,
 				D8A1B99518C597EB0097559B /* SetTimerViewController.h */,
 				D8A1B99618C597EB0097559B /* SetTimerViewController.m */,
 				D8A1B99218C5975B0097559B /* SavedTimersViewController.h */,
@@ -266,7 +272,9 @@
 				D8A1B99118C4FF130097559B /* skeletor.jpg in Resources */,
 				D8A1B98618BAFB920097559B /* Main.storyboard in Resources */,
 				D8A1B95F18BAFAFB0097559B /* InfoPlist.strings in Resources */,
+				DADF1B3418CAB2B600126226 /* AYB.caf in Resources */,
 				D8A1B96718BAFAFB0097559B /* Images.xcassets in Resources */,
+				DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */,
 				D8A1B98C18BC44790097559B /* heman.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

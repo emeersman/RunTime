@@ -7,6 +7,7 @@
 //
 
 #import "QuickTimerViewController.h"
+#import "AudioToolbox/AudioToolbox.h"
 
 @interface QuickTimerViewController ()
 
@@ -22,11 +23,19 @@ int hrValue = 0;
 int hrCountDown = 0;
 BOOL started = NO;
 
+int alarmOn = 0;
+
+//SystemSoundID _alarmSound;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        //load the sound
+        //NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+        //AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &_alarmSound);
     }
     
     return self;
@@ -155,10 +164,34 @@ BOOL started = NO;
             {
                 self.timerSec.text = [NSString stringWithFormat:@"%d", --secCountDown];
                 _titleImage.image = [UIImage imageNamed:@"heman.jpg"];
+                
+                if (alarmOn != 0)
+                {
+                    alarmOn = 0;
+                }
             }
-            else
+            else //zero things
             {
                 _titleImage.image = [UIImage imageNamed:@"skeletor.jpg"];
+                
+                if (alarmOn == 0) //readd this statement if we only want the alarm to sound once
+                {
+                    SystemSoundID _alarmSound;
+                
+                    //separate loading the sounds into it's own file and just keep it loaded until
+                    //exit the app?
+                
+                    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+                    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &_alarmSound);
+                    AudioServicesPlayAlertSound(_alarmSound);
+                    
+                    alarmOn++;
+                }
+                
+                //clean-up
+                //AudioServicesRemoveSystemSoundCompletion(_alarmSound);
+                //AudioServicesDisposeSystemSoundID(_alarmSound);
+                
             }
         }
     }
