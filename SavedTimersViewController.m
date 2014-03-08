@@ -16,6 +16,8 @@
 
 @end
 
+int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
+
 @implementation SavedTimersViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,6 +37,9 @@
     
     _fetchedTimersArray = [appDelegate getAllSavedTimers];
     [self.tableView reloadData];
+    
+    ///hacky hack?
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +66,15 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    //STATIC CELL - hard to test when we can't actually go here.
+    //Doesn't actually work, but the displayed table might not be quite right either.
+    //Might be visually correct, but might need adjustment to get to details to be shifted as well.
+    if (indexPath.row < NUMBER_OF_STATIC_CELLS)
+    {
+        cell.textLabel.text = @"New";
+    }
+    
     Timer* timer = [_fetchedTimersArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, Repeat %@", timer.name, timer.repeatCount];
     
