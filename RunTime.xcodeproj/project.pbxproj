@@ -28,6 +28,7 @@
 		D8A1B99A18C598A80097559B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B99918C598A80097559B /* CoreData.framework */; };
 		D8A1B99D18C598F40097559B /* RunTimeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99B18C598F40097559B /* RunTimeModel.xcdatamodeld */; };
 		D8A1B9A018C59A9C0097559B /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99F18C59A9C0097559B /* Timer.m */; };
+		DA03768C18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03768B18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.m */; };
 		DADF1B3418CAB2B600126226 /* AYB.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3318CAB2B600126226 /* AYB.caf */; };
 		DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3518CAB45900126226 /* alarmSound.caf */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,8 @@
 		D8A1B99C18C598F40097559B /* RunTimeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTimeModel.xcdatamodel; sourceTree = "<group>"; };
 		D8A1B99E18C59A9C0097559B /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		D8A1B99F18C59A9C0097559B /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		DA03768A18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStoryboardSegue_SaveTimer.h; sourceTree = "<group>"; };
+		DA03768B18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStoryboardSegue_SaveTimer.m; sourceTree = "<group>"; };
 		DADF1B3318CAB2B600126226 /* AYB.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AYB.caf; sourceTree = SOURCE_ROOT; };
 		DADF1B3518CAB45900126226 /* alarmSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarmSound.caf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -139,6 +142,8 @@
 				D8A1B99818C598190097559B /* ViewControllers */,
 				D8A1B99018C4FF130097559B /* skeletor.jpg */,
 				D8A1B98B18BC44790097559B /* heman.jpg */,
+				DA03768A18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.h */,
+				DA03768B18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.m */,
 				D8A1B96318BAFAFB0097559B /* AppDelegate.h */,
 				D8A1B96418BAFAFB0097559B /* AppDelegate.m */,
 				D8A1B96618BAFAFB0097559B /* Images.xcassets */,
@@ -301,6 +306,7 @@
 				D8A1B96118BAFAFB0097559B /* main.m in Sources */,
 				D8A1B99718C597EB0097559B /* SetTimerViewController.m in Sources */,
 				D8A1B9A018C59A9C0097559B /* Timer.m in Sources */,
+				DA03768C18D000DE0039DBEF /* UIStoryboardSegue_SaveTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

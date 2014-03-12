@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /*
     NSManagedObjectContext* context = [self managedObjectContext];
     Timer *failedTimer = [NSEntityDescription insertNewObjectForEntityForName:@"Timer" inManagedObjectContext:context];
     failedTimer.name = @"BLAHHH";
@@ -24,7 +25,7 @@
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+    } */
 
     return YES;
 }

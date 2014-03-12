@@ -41,8 +41,11 @@
 {
     //Add timer to Saved Timers
     //  Creates, configures, returns an instance of Timer class
-    Timer * newTimer = [NSEntityDescription insertNewObjectForEntityForName:@"Timer"
-                                                      inManagedObjectContext:self.managedObjectContext];
+    NSManagedObjectContext* context = [self managedObjectContext];
+    Timer * newTimer = [NSEntityDescription
+                        insertNewObjectForEntityForName:@"Timer"
+                        //inManagedObjectContext:self.managedObjectContext];
+                        inManagedObjectContext:context];
     //  Add Values to different attributes of Timer
     newTimer.name = _timerName.text;
     int repeats = [_timerRepeat.text intValue];
@@ -56,6 +59,9 @@
 
     //  Dismiss keyboard
     [self.view endEditing:YES];
+    
+    
+    [self performSegueWithIdentifier:@"SavedTimers" sender:self];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *) timerField {

@@ -244,7 +244,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save Timer" id="csA-3g-2v1">
                             <connections>
                                 <action selector="saveNewTimer:" destination="kv3-jb-Rpb" id="qHz-j8-IHE"/>
-                                <segue destination="6PY-sh-Nnb" kind="push" id="U3Z-iC-TmJ"/>
+                                <segue destination="6PY-sh-Nnb" kind="custom" customClass="UIStoryboardSegue_SaveTimer" id="U3Z-iC-TmJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -398,7 +398,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="6PY-sh-Nnb" kind="push" id="8j7-rd-9yk"/>
+                                    <segue destination="6PY-sh-Nnb" kind="push" identifier="SavedTimers" id="8j7-rd-9yk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLf-hg-JLk">
@@ -528,8 +528,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8j7-rd-9yk"/>
-        <segue reference="IC0-KL-EBA"/>
         <segue reference="e70-9q-hMJ"/>
+        <segue reference="IC0-KL-EBA"/>
+        <segue reference="U3Z-iC-TmJ"/>
     </inferredMetricsTieBreakers>
 </document>
