@@ -38,8 +38,11 @@
 }
 
 
+// this function is called before any segue on the SetTimerViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    //this is for saving the timer, which requires calling a function and then
+    //pushing the segue
     if (sender == self.saveTimerButtonBar)
     {
         [self saveNewTimer:sender];
