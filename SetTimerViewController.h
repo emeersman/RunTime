@@ -12,4 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *timerName;
 @property (weak, nonatomic) IBOutlet UITextField *timerRepeat;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveTimerButtonBar;
+
 @end

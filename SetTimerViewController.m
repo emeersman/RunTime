@@ -37,6 +37,15 @@
 	// Do any additional setup after loading the view.
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender == self.saveTimerButtonBar)
+    {
+        [self saveNewTimer:sender];
+    }
+}
+
 - (IBAction)addTimer:(id)sender
 {
     //Add timer to Saved Timers
@@ -59,9 +68,6 @@
 
     //  Dismiss keyboard
     [self.view endEditing:YES];
-    
-    
-    [self performSegueWithIdentifier:@"SavedTimers" sender:self];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *) timerField {

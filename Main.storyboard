@@ -243,12 +243,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save Timer" id="csA-3g-2v1">
                             <connections>
-                                <action selector="saveNewTimer:" destination="kv3-jb-Rpb" id="qHz-j8-IHE"/>
-                                <segue destination="6PY-sh-Nnb" kind="custom" customClass="UIStoryboardSegue_SaveTimer" id="U3Z-iC-TmJ"/>
+                                <segue destination="6PY-sh-Nnb" kind="push" customClass="UIStoryboardSegue_SaveTimer" id="U3Z-iC-TmJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveTimerButtonBar" destination="csA-3g-2v1" id="MSj-tg-AHr"/>
                         <outlet property="timerName" destination="mme-IB-VUd" id="aH7-jQ-x4f"/>
                         <outlet property="timerRepeat" destination="Q0C-kc-zhe" id="oTr-aU-6D8"/>
                     </connections>
@@ -528,7 +528,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="e70-9q-hMJ"/>
+        <segue reference="dPT-TZ-B73"/>
         <segue reference="IC0-KL-EBA"/>
         <segue reference="U3Z-iC-TmJ"/>
     </inferredMetricsTieBreakers>
