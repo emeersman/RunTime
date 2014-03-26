@@ -27,6 +27,9 @@
 		D8A1B99718C597EB0097559B /* SetTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99618C597EB0097559B /* SetTimerViewController.m */; };
 		D8A1B99A18C598A80097559B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B99918C598A80097559B /* CoreData.framework */; };
 		D8A1B99D18C598F40097559B /* RunTimeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8A1B99B18C598F40097559B /* RunTimeModel.xcdatamodeld */; };
+		D8C0942E18E2771400A76D75 /* RunTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0942D18E2771400A76D75 /* RunTimerViewController.m */; };
+		D8C0943418E2777500A76D75 /* SetInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0943318E2777500A76D75 /* SetInstructionViewController.m */; };
+		D8C0943718E2787F00A76D75 /* EditTimersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0943618E2787F00A76D75 /* EditTimersViewController.m */; };
 		DA9EBAAE18E13DD7001093C9 /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9EBAAD18E13DD7001093C9 /* Interval.m */; };
 		DA9EBAB118E13DD8001093C9 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9EBAB018E13DD8001093C9 /* Timer.m */; };
 		DADF1B3418CAB2B600126226 /* AYB.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3318CAB2B600126226 /* AYB.caf */; };
@@ -71,6 +74,12 @@
 		D8A1B99618C597EB0097559B /* SetTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetTimerViewController.m; path = ../SetTimerViewController.m; sourceTree = "<group>"; };
 		D8A1B99918C598A80097559B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D8A1B99C18C598F40097559B /* RunTimeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunTimeModel.xcdatamodel; sourceTree = "<group>"; };
+		D8C0942C18E2771400A76D75 /* RunTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTimerViewController.h; sourceTree = SOURCE_ROOT; };
+		D8C0942D18E2771400A76D75 /* RunTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunTimerViewController.m; sourceTree = SOURCE_ROOT; };
+		D8C0943218E2777500A76D75 /* SetInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetInstructionViewController.h; path = ../SetInstructionViewController.h; sourceTree = "<group>"; };
+		D8C0943318E2777500A76D75 /* SetInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetInstructionViewController.m; path = ../SetInstructionViewController.m; sourceTree = "<group>"; };
+		D8C0943518E2787F00A76D75 /* EditTimersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTimersViewController.h; path = ../EditTimersViewController.h; sourceTree = "<group>"; };
+		D8C0943618E2787F00A76D75 /* EditTimersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTimersViewController.m; path = ../EditTimersViewController.m; sourceTree = "<group>"; };
 		DA9EBAAC18E13DD7001093C9 /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
 		DA9EBAAD18E13DD7001093C9 /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
 		DA9EBAAF18E13DD8001093C9 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
@@ -187,6 +196,12 @@
 		D8A1B99818C598190097559B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8C0943518E2787F00A76D75 /* EditTimersViewController.h */,
+				D8C0943618E2787F00A76D75 /* EditTimersViewController.m */,
+				D8C0943218E2777500A76D75 /* SetInstructionViewController.h */,
+				D8C0943318E2777500A76D75 /* SetInstructionViewController.m */,
+				D8C0942C18E2771400A76D75 /* RunTimerViewController.h */,
+				D8C0942D18E2771400A76D75 /* RunTimerViewController.m */,
 				DADF1B3518CAB45900126226 /* alarmSound.caf */,
 				DADF1B3318CAB2B600126226 /* AYB.caf */,
 				D8A1B99518C597EB0097559B /* SetTimerViewController.h */,
@@ -306,7 +321,10 @@
 				D8A1B99D18C598F40097559B /* RunTimeModel.xcdatamodeld in Sources */,
 				D8A1B98F18BC4CAF0097559B /* QuickTimerViewController.m in Sources */,
 				D8A1B96118BAFAFB0097559B /* main.m in Sources */,
+				D8C0943718E2787F00A76D75 /* EditTimersViewController.m in Sources */,
+				D8C0942E18E2771400A76D75 /* RunTimerViewController.m in Sources */,
 				D8A1B99718C597EB0097559B /* SetTimerViewController.m in Sources */,
+				D8C0943418E2777500A76D75 /* SetInstructionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
