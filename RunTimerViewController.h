@@ -11,7 +11,16 @@
 
 @interface RunTimerViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *beginTimer;
+@property (strong, nonatomic) NSTimer *currTimer;
+
 @property (nonatomic, strong) IBOutlet Timer *selectTimer;
+
+@property (weak, nonatomic) IBOutlet UIButton *resetTimer;
+
+@property (weak, nonatomic) IBOutlet UITextField *timerHr;
+@property (weak, nonatomic) IBOutlet UITextField *timerMin;
+@property (weak, nonatomic) IBOutlet UITextField *timerSec;
 @property (weak, nonatomic) IBOutlet UITextField *instrId;
 @property (weak, nonatomic) IBOutlet UILabel *timerName;
 @property (weak, nonatomic) IBOutlet UITextField *timerReps;
