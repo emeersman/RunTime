@@ -14,6 +14,8 @@
 
 @implementation RunTimerViewController
 
+@synthesize selectTimer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    _timerName.text = selectTimer.name;
+    _timerReps.text = [selectTimer.repeatCount stringValue];
 }
 
 - (void)didReceiveMemoryWarning

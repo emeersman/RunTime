@@ -8,6 +8,7 @@
 
 #import "SavedTimersViewController.h"
 #import "AppDelegate.h"
+#import "RunTimerViewController.h"
 #import "Timer.h"
 
 @interface SavedTimersViewController ()
@@ -16,6 +17,8 @@
 
 @end
 
+NSIndexPath *indexP = 0;
+Timer *tempTimer;
 int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
 
 @implementation SavedTimersViewController
@@ -83,7 +86,23 @@ int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    indexP = indexPath;
+    tempTimer = [_fetchedTimersArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"runSavedTimer" sender:self];
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    RunTimerViewController *destViewController = segue.destinationViewController;
+    destViewController.selectTimer = tempTimer;
+    /*if ([segue.identifier isEqualToString:@"runSavedTimer"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        RunTimerViewController *destViewController = segue.destinationViewController;
+        destViewController.selectTimer = [_fetchedTimersArray objectAtIndex:indexPath.row];
+        
+    }*/
+}
 
 /*
 // Override to support conditional editing of the table view.

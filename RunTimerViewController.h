@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Timer.h"
 
 @interface RunTimerViewController : UIViewController
+
+@property (nonatomic, strong) IBOutlet Timer *selectTimer;
+@property (weak, nonatomic) IBOutlet UITextField *instrId;
+@property (weak, nonatomic) IBOutlet UILabel *timerName;
+@property (weak, nonatomic) IBOutlet UITextField *timerReps;
 
 @end
