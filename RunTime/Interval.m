@@ -2,19 +2,22 @@
 //  Interval.m
 //  RunTime
 //
-//  Created by Laptop 24 on 3/24/14.
+//  Created by Laptop 24 on 4/1/14.
 //  Copyright (c) 2014 HMC. All rights reserved.
 //
 
 #import "Interval.h"
+#import "Timer.h"
 
 
 @implementation Interval
 
-@dynamic name;
 @dynamic hours;
 @dynamic minutes;
-@dynamic seconds;
+@dynamic name;
 @dynamic repeatCount;
+@dynamic seconds;
+@dynamic id;
+@dynamic timer;
 
 @end

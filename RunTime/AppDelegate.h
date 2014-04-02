@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 -(NSArray*) getAllSavedTimers;
+-(NSArray*) getAllSavedIntervals;
 
 @end

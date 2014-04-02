@@ -8,9 +8,13 @@
 
 #import "SetTimerViewController.h"
 #import "Timer.h"
+#import "Interval.h"
 #import "AppDelegate.h"
 
 @interface SetTimerViewController ()
+
+//for table of instructions
+@property (nonatomic, strong)NSArray* fetchedIntervalsArray;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
@@ -29,12 +33,17 @@
 
 - (void)viewDidLoad
 {
+    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     _managedObjectContext = appDelegate.managedObjectContext;
-    _timerName.delegate = self;
-    _timerRepeat.delegate = self;
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    _fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
+    [_intervalTable reloadData];
+    
+    //hacky hack from SavedTimersViewController.m
+    [_intervalTable registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"Cell"];
 }
 
 
@@ -63,7 +72,6 @@
     int repeats = [_timerRepeat.text intValue];
     newTimer.repeatCount = [NSNumber numberWithInt:repeats];
     
-    //  Save entity value to database
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
@@ -73,11 +81,14 @@
     [self.view endEditing:YES];
 }
 
+/*
+ * doesn't seem to do anything
 - (BOOL)textFieldShouldReturn:(UITextField *) timerField {
     [self.view endEditing:YES];
     [timerField resignFirstResponder];
     return YES;
 }
+ */
 
 - (IBAction)saveNewTimer:(id)sender {
     [self addTimer:sender];
@@ -88,6 +99,40 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //return the number of sections
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [_fetchedIntervalsArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    //STATIC CELL - hard to test when we can't actually go here.
+    //Doesn't actually work, but the displayed table might not be quite right either.
+    //Might be visually correct, but might need adjustment to get to details to be shifted as well.
+    /* if (indexPath.row < NUMBER_OF_STATIC_CELLS)
+    {
+        cell.textLabel.text = @"New";
+    } */
+    
+    Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.seconds];
+    
+    // Configure the cell...
+    
+    return cell;
 }
 
 @end

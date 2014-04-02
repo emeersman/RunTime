@@ -10,4 +10,13 @@
 
 @interface SetInstructionViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *instructionName;
+@property (weak, nonatomic) IBOutlet UITextField *instructionRepeat;
+@property (weak, nonatomic) IBOutlet UITextField *iHour;
+@property (weak, nonatomic) IBOutlet UITextField *iMinute;
+@property (weak, nonatomic) IBOutlet UITextField *iSecond;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveIntervalButtonBar;
+
+
 @end

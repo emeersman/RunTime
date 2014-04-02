@@ -117,5 +117,22 @@
     return fetchedRecords;
 }
 
+-(NSArray*) getAllSavedIntervals {
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Interval"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    //returning fetched records
+    return fetchedRecords;
+}
+
 
 @end

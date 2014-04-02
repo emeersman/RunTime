@@ -7,8 +7,12 @@
 //
 
 #import "SetInstructionViewController.h"
+#import "AppDelegate.h"
+#import "Interval.h"
 
 @interface SetInstructionViewController ()
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -25,8 +29,56 @@
 
 - (void)viewDidLoad
 {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    _managedObjectContext = appDelegate.managedObjectContext;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+//called before any segue on the SetInstructionViewController
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //will want a transition for saving instructions, as with saving timers
+    if (sender == self.saveIntervalButtonBar)
+    {
+        [self saveNewInstruction:sender];
+    }
+}
+
+- (IBAction)addInstruction:(id)sender
+{
+    //add interval to interval list that are in the timer
+    NSManagedObjectContext* context = [self managedObjectContext];
+    Interval  * newInterval = [NSEntityDescription
+                               insertNewObjectForEntityForName:@"Interval"
+                               inManagedObjectContext:context];
+    
+    //add values to different attributes of intervals
+    newInterval.name = _instructionName.text;
+    int repeats = [_instructionRepeat.text intValue];
+    newInterval.repeatCount = [NSNumber numberWithInt: repeats];
+    int hours = [_iHour.text intValue];
+    int minutes = [_iMinute.text intValue];
+    int seconds = [_iSecond.text intValue];
+    
+    newInterval.hours = [NSNumber numberWithInt:hours];
+    newInterval.minutes = [NSNumber numberWithInt:minutes];
+    newInterval.seconds = [NSNumber numberWithInt:seconds];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error])
+    {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    //Dismiss keyboard
+    [self.view endEditing:YES];
+}
+
+- (IBAction)saveNewInstruction:(id)sender
+{
+    [self addInstruction:sender];
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
