@@ -83,6 +83,7 @@
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
+    
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
                                                stringByAppendingPathComponent: @"Timer.sqlite"]];
     NSError *error = nil;

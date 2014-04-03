@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetTimerViewController : UIViewController <UITextFieldDelegate>
+@interface SetTimerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *timerName;
 @property (weak, nonatomic) IBOutlet UITextField *timerRepeat;
 
