@@ -17,6 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //FIXME where we would put the stored ID counters for timers and intervals
+    //new entity needed for unique IDs
+    //structure for adding is the same as below
+    
+    //should check if the thing exists (certain name to it) and if it doesn't make it,
+    //if it does maaaybe pull it into a global variable, or just be able to increment it I guess.
+    //increment function could arbitrarily go in AppDelegate as this feels like a more
+    //global file.
+    
     /*
     NSManagedObjectContext* context = [self managedObjectContext];
     Timer *failedTimer = [NSEntityDescription insertNewObjectForEntityForName:@"Timer" inManagedObjectContext:context];

@@ -15,8 +15,13 @@
         <attribute name="repeatCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="instructions" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Interval" inverseName="timer" inverseEntity="Interval" syncable="YES"/>
     </entity>
+    <entity name="UniqueIDCounter" representedClassName="UniqueIDCounter" syncable="YES">
+        <attribute name="intervalID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timerID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Interval" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Timer" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UniqueIDCounter" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
