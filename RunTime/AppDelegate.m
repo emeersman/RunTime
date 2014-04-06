@@ -26,7 +26,14 @@
     //run) or if it already exists and we should just leave it alone
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = _managedObjectContext;
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (context == nil)
+    {
+        NSLog(@"context is nil");
+    }
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
     [request setEntity:entity];
     
