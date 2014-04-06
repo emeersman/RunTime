@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Timer.h"
+#import "Interval.h"
+#import "UniqueIDCounter.h"
 
 @implementation AppDelegate
 
@@ -17,27 +19,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //FIXME where we would put the stored ID counters for timers and intervals
-    //new entity needed for unique IDs
-    //structure for adding is the same as below
+    UniqueIDCounter *uniqueIDCounter;
     
-    //should check if the thing exists (certain name to it) and if it doesn't make it,
-    //if it does maaaybe pull it into a global variable, or just be able to increment it I guess.
-    //increment function could arbitrarily go in AppDelegate as this feels like a more
-    //global file.
+    //in theory this is a fetch request which let's us look and see if something is there or not
+    //with the label "UniqueIDCounter" to see if we need to create one (first time app is being
+    //run) or if it already exists and we should just leave it alone
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = _managedObjectContext;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSUInteger count = [context countForFetchRequest:request error:&error];
+    //[request release]; //apparently "ARC" does this for us, but leaving it here for reference
+    
+    if (count == NSNotFound) {
+        //doesn't exist, so we create it
+        uniqueIDCounter = [NSEntityDescription insertNewObjectForEntityForName:@"UniqueIDCounter"
+                                                        inManagedObjectContext:context];
+        uniqueIDCounter.timerID = [NSNumber numberWithInt:1];
+        uniqueIDCounter.intervalID = [NSNumber numberWithInt:1];
+    }
     
     /*
-    NSManagedObjectContext* context = [self managedObjectContext];
-    Timer *failedTimer = [NSEntityDescription insertNewObjectForEntityForName:@"Timer" inManagedObjectContext:context];
-    failedTimer.name = @"BLAHHH";
+     NSManagedObjectContext* context = [self managedObjectContext];
+     Timer *failedTimer = [NSEntityDescription insertNewObjectForEntityForName:@"Timer" inManagedObjectContext:context];
+     failedTimer.name = @"BLAHHH";
+     
+     NSError *error;
+     if (![self.managedObjectContext save:&error]) {
+     NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+     } */
     
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    } */
-
     return YES;
+        
 }
+    
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -142,6 +161,24 @@
     
     //returning fetched records
     return fetchedRecords;
+}
+
+-(UniqueIDCounter*) getUniqueID {
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    UniqueIDCounter* uniqueIDCounter = [self.managedObjectContext
+                                        executeFetchRequest:fetchRequest error:&error][0];
+    
+    return uniqueIDCounter;
 }
 
 
