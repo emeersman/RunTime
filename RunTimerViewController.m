@@ -60,6 +60,14 @@ int alarmOnC = 0;
     
     _timerName.text = selectTimer.name;
     _timerReps.text = [selectTimer.repeatCount stringValue];
+    //[self updateInstruction];
+    _timerName.userInteractionEnabled = NO;
+    _timerReps.userInteractionEnabled = NO;
+    _instrId.userInteractionEnabled = NO;
+    _instrReps.userInteractionEnabled = NO;
+    _timerHr.userInteractionEnabled = NO;
+    _timerMin.userInteractionEnabled = NO;
+    _timerSec.userInteractionEnabled = NO;
 }
     /*NSMutableArray *instrArray = [[NSMutableArray alloc] initWithCapacity:10];
     
