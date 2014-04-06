@@ -45,6 +45,12 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *) timerField {
+    [self.view endEditing:YES];
+    [timerField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)addInstruction:(id)sender
 {
     //add interval to interval list that are in the timer

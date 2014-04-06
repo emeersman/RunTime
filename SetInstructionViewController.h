@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SetInstructionViewController : UIViewController
+@interface SetInstructionViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *instructionName;
 @property (weak, nonatomic) IBOutlet UITextField *instructionRepeat;

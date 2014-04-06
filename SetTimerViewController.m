@@ -46,6 +46,11 @@
            forCellReuseIdentifier:@"Cell"];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *) timerField {
+    [self.view endEditing:YES];
+    [timerField resignFirstResponder];
+    return NO;
+}
 
 // this function is called before any segue on the SetTimerViewController
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

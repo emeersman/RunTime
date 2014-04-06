@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSTimer *currTimer;
 
 @property (nonatomic, strong) IBOutlet Timer *selectTimer;
+@property (weak, nonatomic) IBOutlet UITableView *miniTableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetTimer;
 
@@ -24,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *instrId;
 @property (weak, nonatomic) IBOutlet UILabel *timerName;
 @property (weak, nonatomic) IBOutlet UITextField *timerReps;
+@property (weak, nonatomic) IBOutlet UITextField *instrReps;
 
 @end

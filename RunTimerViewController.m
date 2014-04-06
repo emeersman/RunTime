@@ -8,8 +8,11 @@
 
 #import "RunTimerViewController.h"
 #import "Timer.h"
+#import "AppDelegate.h"
 
 @interface RunTimerViewController ()
+
+@property (nonatomic, strong)NSArray* fetchedIntervalsArray;
 
 @end
 
@@ -29,8 +32,9 @@ int instrCountDown = 0;
 int repValue = 0;
 int repCountDown = 0;
 BOOL startedC = NO;
-
 int alarmOnC = 0;
+//NSMutableArray *instrArray;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,18 +48,73 @@ int alarmOnC = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    // TODO: Fetch instructions array when transitioning from SavedTimer
+    _fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
+    [self.miniTableView reloadData];
+    
+    ///hacky hack?
+    [self.miniTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
     _timerName.text = selectTimer.name;
     _timerReps.text = [selectTimer.repeatCount stringValue];
-    //[updateInstruction];
 }
+    /*NSMutableArray *instrArray = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    NSString *instr1 = @"first";
+    int hours1 = 0;
+    int mins1 = 0;
+    NSString *secs1 = @"5";
+    int reps1 = 1;
+    
+    NSNumber *xhours1 = [NSNumber numberWithInt:hours1];
+    NSNumber *xmins1 = [NSNumber numberWithInt:mins1];
+    //NSNumber *xsecs1 = [NSNumber numberWithInt:secs1];
+    NSNumber *xreps1 = [NSNumber numberWithInt:reps1];
+
+    
+    NSString *instr2 = @"second";
+    NSInteger hours2 = 0;
+    NSInteger mins2 = 1;
+    NSInteger secs2 = 5;
+    NSInteger reps2 = 2;
+    
+    NSNumber *xhours2 = [NSNumber numberWithInt:hours2];
+    NSNumber *xmins2 = [NSNumber numberWithInt:mins2];
+    NSNumber *xsecs2 = [NSNumber numberWithInt:secs2];
+    NSNumber *xreps2 = [NSNumber numberWithInt:reps2];
+    
+    [instrArray addObject:instr1];
+    [instrArray addObject:xhours1];
+    [instrArray addObject:xmins1];
+    [instrArray addObject:secs1];
+    [instrArray addObject:xreps1];
+    
+    [instrArray addObject:instr2];
+    [instrArray addObject:xhours2];
+    [instrArray addObject:xmins2];
+    [instrArray addObject:xsecs2];
+    [instrArray addObject:xreps2];
+    
+    [self updateInstruction];*/
+
 
 -(void) updateInstruction
 {
+     /*_instrId.text = [instrArray[currInstr] stringValue];
+     _timerHr.text = [instrArray[currInstr+1] stringValue];
+     _timerMin.text = [instrArray[currInstr+2] stringValue];
+     _timerSec.text = [instrArray[currInstr+3] stringValue];
+     _instrReps.text = [instrArray[currInstr+4] stringValue];*/
+    
+    // This is for when instructions are working
     /*_instrId.text = [selectTimer.instructions[currInstr].name];
      _timerHr.text = [selectTimer.instructions[currInstr].hours stringValue];
      _timerMin.text = [selectTimer.instructions[currInstr].minutes stringValue];
      _timerSec.text = [selectTimer.instructions[currInstr].seconds stringValue];
-     _instrReps.text = [selectTimer.instructions[currInstr].repeatCount stringValue]*/
+     _instrReps.text = [selectTimer.instructions[currInstr].repeatCount stringValue];*/
 }
 
 - (IBAction)beginTimer:(id)sender {
