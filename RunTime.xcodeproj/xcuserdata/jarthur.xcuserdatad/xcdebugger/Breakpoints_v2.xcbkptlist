@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RunTimerViewController.m"
-            timestampString = "418511457.822352"
+            timestampString = "418520009.067972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "@implementation RunTimerViewController"
             landmarkType = "3">
          </BreakpointContent>

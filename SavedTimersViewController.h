@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SavedTimersViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButton;
 
 @end
