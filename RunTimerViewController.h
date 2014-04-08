@@ -9,16 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "Timer.h"
 
-@interface RunTimerViewController : UIViewController
+@interface RunTimerViewController : UIViewController <UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *beginTimer;
 @property (strong, nonatomic) NSTimer *currTimer;
 
+// The timer we selected from SavedTimers
 @property (nonatomic, strong) IBOutlet Timer *selectTimer;
+
+// Table of instructions!
 @property (weak, nonatomic) IBOutlet UITableView *miniTableView;
 
+// Reset button
 @property (weak, nonatomic) IBOutlet UIButton *resetTimer;
 
+// All of the text fields
 @property (weak, nonatomic) IBOutlet UITextField *timerHr;
 @property (weak, nonatomic) IBOutlet UITextField *timerMin;
 @property (weak, nonatomic) IBOutlet UITextField *timerSec;

@@ -386,6 +386,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="rDf-yg-W4X" id="fxn-QH-Ly6"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seK-IH-bhU">
                                 <rect key="frame" x="13" y="72" width="0.0" height="0.0"/>
@@ -592,7 +595,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="IC0-KL-EBA"/>
-        <segue reference="ibg-hT-J1F"/>
+        <segue reference="e70-9q-hMJ"/>
         <segue reference="U3Z-iC-TmJ"/>
     </inferredMetricsTieBreakers>
 </document>

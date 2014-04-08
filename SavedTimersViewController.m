@@ -96,6 +96,7 @@ int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
 // Passes data from selected row to RunTimerViewController
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // If the edit button is pressed, we don't need to create any new objects, just go to Edit Timers
     if(sender != self.editBarButton)
     {
         RunTimerViewController *destViewController = segue.destinationViewController;

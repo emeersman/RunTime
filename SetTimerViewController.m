@@ -33,7 +33,6 @@
 
 - (void)viewDidLoad
 {
-    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     _managedObjectContext = appDelegate.managedObjectContext;
     [super viewDidLoad];
@@ -70,12 +69,14 @@
     NSManagedObjectContext* context = [self managedObjectContext];
     Timer * newTimer = [NSEntityDescription
                         insertNewObjectForEntityForName:@"Timer"
-                        //inManagedObjectContext:self.managedObjectContext];
                         inManagedObjectContext:context];
     //  Add Values to different attributes of Timer
     newTimer.name = _timerName.text;
     int repeats = [_timerRepeat.text intValue];
     newTimer.repeatCount = [NSNumber numberWithInt:repeats];
+    
+    // Take the array of intervals, save it to the new timer being constructed
+    newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -133,7 +134,7 @@
     } */
     
     Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.seconds];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.repeatCount];
     
     // Configure the cell...
     

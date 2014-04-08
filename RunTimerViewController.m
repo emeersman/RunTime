@@ -8,6 +8,7 @@
 
 #import "RunTimerViewController.h"
 #import "Timer.h"
+#import "Interval.h"
 #import "AppDelegate.h"
 
 @interface RunTimerViewController ()
@@ -33,7 +34,7 @@ int repValue = 0;
 int repCountDown = 0;
 BOOL startedC = NO;
 int alarmOnC = 0;
-//NSMutableArray *instrArray;
+int STATIC_CELLS = 1; //not a magic number! The "new" button.
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,16 +52,21 @@ int alarmOnC = 0;
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
-    // TODO: Fetch instructions array when transitioning from SavedTimer
+    // Fetch instructions array when transitioning from SavedTimer
     _fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
-    [self.miniTableView reloadData];
+    [_miniTableView reloadData];// This SHOULD load them into the table, but something's up
     
-    ///hacky hack?
-    [self.miniTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    
+    ///hacky hack from SavedTimers
+    [_miniTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+
+    // Pre-populate text fields with timer name and repeats
     _timerName.text = selectTimer.name;
     _timerReps.text = [selectTimer.repeatCount stringValue];
-    //[self updateInstruction];
+    
+    
+    [self updateInstruction];
+    
+    // User can't edit any of these field in this window
     _timerName.userInteractionEnabled = NO;
     _timerReps.userInteractionEnabled = NO;
     _instrId.userInteractionEnabled = NO;
@@ -69,69 +75,53 @@ int alarmOnC = 0;
     _timerMin.userInteractionEnabled = NO;
     _timerSec.userInteractionEnabled = NO;
 }
-    /*NSMutableArray *instrArray = [[NSMutableArray alloc] initWithCapacity:10];
-    
-    NSString *instr1 = @"first";
-    int hours1 = 0;
-    int mins1 = 0;
-    NSString *secs1 = @"5";
-    int reps1 = 1;
-    
-    NSNumber *xhours1 = [NSNumber numberWithInt:hours1];
-    NSNumber *xmins1 = [NSNumber numberWithInt:mins1];
-    //NSNumber *xsecs1 = [NSNumber numberWithInt:secs1];
-    NSNumber *xreps1 = [NSNumber numberWithInt:reps1];
 
-    
-    NSString *instr2 = @"second";
-    NSInteger hours2 = 0;
-    NSInteger mins2 = 1;
-    NSInteger secs2 = 5;
-    NSInteger reps2 = 2;
-    
-    NSNumber *xhours2 = [NSNumber numberWithInt:hours2];
-    NSNumber *xmins2 = [NSNumber numberWithInt:mins2];
-    NSNumber *xsecs2 = [NSNumber numberWithInt:secs2];
-    NSNumber *xreps2 = [NSNumber numberWithInt:reps2];
-    
-    [instrArray addObject:instr1];
-    [instrArray addObject:xhours1];
-    [instrArray addObject:xmins1];
-    [instrArray addObject:secs1];
-    [instrArray addObject:xreps1];
-    
-    [instrArray addObject:instr2];
-    [instrArray addObject:xhours2];
-    [instrArray addObject:xmins2];
-    [instrArray addObject:xsecs2];
-    [instrArray addObject:xreps2];
-    
-    [self updateInstruction];*/
-
-
+// Depending on what instruction we're on, sets text field values for that instruction
 -(void) updateInstruction
 {
-     /*_instrId.text = [instrArray[currInstr] stringValue];
-     _timerHr.text = [instrArray[currInstr+1] stringValue];
-     _timerMin.text = [instrArray[currInstr+2] stringValue];
-     _timerSec.text = [instrArray[currInstr+3] stringValue];
-     _instrReps.text = [instrArray[currInstr+4] stringValue];*/
-    
-    // This is for when instructions are working
-    /*_instrId.text = [selectTimer.instructions[currInstr].name];
-     _timerHr.text = [selectTimer.instructions[currInstr].hours stringValue];
-     _timerMin.text = [selectTimer.instructions[currInstr].minutes stringValue];
-     _timerSec.text = [selectTimer.instructions[currInstr].seconds stringValue];
-     _instrReps.text = [selectTimer.instructions[currInstr].repeatCount stringValue];*/
+    if([selectTimer.instructions count] > 0)
+    {
+        Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
+        _instrId.text = tempInstr.name;
+        _timerHr.text = [tempInstr.hours stringValue];
+        _timerMin.text = [tempInstr.minutes stringValue];
+        _timerSec.text = [tempInstr.seconds stringValue];
+        _instrReps.text = [tempInstr.repeatCount stringValue];
+    }
 }
 
+//Dealing with the mini table view on the screen
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    //return the number of sections
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [_fetchedIntervalsArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.repeatCount];
+    
+    return cell;
+}
+
+// What happens when we press run!
 - (IBAction)beginTimer:(id)sender {
     if (!startedC) {
         _currTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                           target:self
-                                                         selector:@selector(updateTimer:)
-                                                         userInfo:nil
-                                                          repeats:YES];
+                                                      target:self
+                                                    selector:@selector(updateTimer:)
+                                                    userInfo:nil
+                                                     repeats:YES];
         
         NSRunLoop *runner = [NSRunLoop currentRunLoop];
         [runner addTimer: _currTimer forMode: NSDefaultRunLoopMode];
@@ -146,9 +136,9 @@ int alarmOnC = 0;
             _currTimer = nil;
         }
     }
-    
 }
 
+// This happens every tick of the timer, deals with instructions, reps, etc.
 -(void)updateTimer:(NSTimer *)timer {
     if(hrCountDownC > 0)
     {
@@ -203,26 +193,29 @@ int alarmOnC = 0;
                 // if instruction repeat is above 0, repeat that instruction again
                 if (instrCountDown > 0)
                 {
-                    --instrCountDown;
+                    --instrCountDown; // set visual display of instr to be one less, as well
                     //reset timer for that instr
-                    //[updateInstruction];
+                    [self updateInstruction];
                     // start the timer
                 } else { // else go to next instruction, if there is one
-                    //if currInstr > instructions.length-1, ++currInstr
-                    //else check if timer still needs to be repeated
-                    /*if (repCountDown > 0)
-                     {
-                     --repCountDown;
-                     currInstr = 0;
-                     //[updateInstruction];
-                     //start timer with next instruction
-                     } else {
-                     
-                     }*/
+                    if(currInstr < [selectTimer.instructions count] - 1)
+                    {
+                        ++currInstr;
+                        [self updateInstruction];
+                    } else { //check if timer still needs to be repeated
+                        if (repCountDown > 0)
+                        {
+                         --repCountDown;
+                         currInstr = 0;
+                         [self updateInstruction];
+                         //start timer with next instruction
+                        }
+                    }
                 }
             }
         }
     }
+    // Puts zeros in tens place when necessary
     if(hrCountDownC < 10)
         _timerHr.text = [NSString stringWithFormat:@"0%d", hrCountDownC];
     if(minCountDownC < 10)
@@ -232,15 +225,14 @@ int alarmOnC = 0;
 
 }
 
-
-
+// Reset button is pressed!
 - (IBAction)resetTimer:(id)sender {
     if(_currTimer){
         [_currTimer invalidate];
         _currTimer = nil;
     }
     currInstr = 0;
-    //[updateInstruction];
+    [self updateInstruction];
 }
 
 
