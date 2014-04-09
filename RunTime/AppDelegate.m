@@ -33,7 +33,6 @@
         NSLog(@"context is nil");
     }
     
-    //NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
     [request setEntity:entity];
     

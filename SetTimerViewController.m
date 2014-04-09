@@ -76,7 +76,7 @@
     newTimer.repeatCount = [NSNumber numberWithInt:repeats];
     
     // Take the array of intervals, save it to the new timer being constructed
-    newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
+    //newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
