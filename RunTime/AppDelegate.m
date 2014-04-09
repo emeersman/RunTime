@@ -19,7 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UniqueIDCounter *uniqueIDCounter;
     
     //in theory this is a fetch request which let's us look and see if something is there or not
     //with the label "UniqueIDCounter" to see if we need to create one (first time app is being
@@ -34,6 +33,7 @@
         NSLog(@"context is nil");
     }
     
+    //NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter" inManagedObjectContext:context];
     [request setEntity:entity];
     
@@ -41,12 +41,14 @@
     NSUInteger count = [context countForFetchRequest:request error:&error];
     //[request release]; //apparently "ARC" does this for us, but leaving it here for reference
     
-    if (count == NSNotFound) {
+    if (count == 0) {
         //doesn't exist, so we create it
-        uniqueIDCounter = [NSEntityDescription insertNewObjectForEntityForName:@"UniqueIDCounter"
+        UniqueIDCounter* uniqueIDCounter = [NSEntityDescription insertNewObjectForEntityForName:@"UniqueIDCounter"
                                                         inManagedObjectContext:context];
         uniqueIDCounter.timerID = [NSNumber numberWithInt:1];
         uniqueIDCounter.intervalID = [NSNumber numberWithInt:1];
+        
+        
     }
     
     /*
