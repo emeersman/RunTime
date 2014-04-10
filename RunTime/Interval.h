@@ -2,7 +2,7 @@
 //  Interval.h
 //  RunTime
 //
-//  Created by Laptop 24 on 4/5/14.
+//  Created by Laptop 24 on 4/9/14.
 //  Copyright (c) 2014 HMC. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * repeatCount;
 @property (nonatomic, retain) NSNumber * seconds;
+@property (nonatomic, retain) NSNumber * assigned;
 @property (nonatomic, retain) Timer *timer;
 
 @end

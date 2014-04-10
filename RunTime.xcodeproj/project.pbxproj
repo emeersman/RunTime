@@ -30,9 +30,9 @@
 		D8C0942E18E2771400A76D75 /* RunTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0942D18E2771400A76D75 /* RunTimerViewController.m */; };
 		D8C0943418E2777500A76D75 /* SetInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0943318E2777500A76D75 /* SetInstructionViewController.m */; };
 		D8C0943718E2787F00A76D75 /* EditTimersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C0943618E2787F00A76D75 /* EditTimersViewController.m */; };
-		DA5F944318F0A292005AD151 /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F944218F0A292005AD151 /* Interval.m */; };
-		DA5F944618F0A292005AD151 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F944518F0A292005AD151 /* Timer.m */; };
-		DA5F944918F0A292005AD151 /* UniqueIDCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F944818F0A292005AD151 /* UniqueIDCounter.m */; };
+		DA5F944C18F6693C005AD151 /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F944B18F6693C005AD151 /* Interval.m */; };
+		DA5F944F18F6693C005AD151 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F944E18F6693C005AD151 /* Timer.m */; };
+		DA5F945218F6693C005AD151 /* UniqueIDCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5F945118F6693C005AD151 /* UniqueIDCounter.m */; };
 		DADF1B3418CAB2B600126226 /* AYB.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3318CAB2B600126226 /* AYB.caf */; };
 		DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3518CAB45900126226 /* alarmSound.caf */; };
 /* End PBXBuildFile section */
@@ -81,12 +81,12 @@
 		D8C0943318E2777500A76D75 /* SetInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetInstructionViewController.m; path = ../SetInstructionViewController.m; sourceTree = "<group>"; };
 		D8C0943518E2787F00A76D75 /* EditTimersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditTimersViewController.h; path = ../EditTimersViewController.h; sourceTree = "<group>"; };
 		D8C0943618E2787F00A76D75 /* EditTimersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditTimersViewController.m; path = ../EditTimersViewController.m; sourceTree = "<group>"; };
-		DA5F944118F0A292005AD151 /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
-		DA5F944218F0A292005AD151 /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
-		DA5F944418F0A292005AD151 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
-		DA5F944518F0A292005AD151 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
-		DA5F944718F0A292005AD151 /* UniqueIDCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqueIDCounter.h; sourceTree = "<group>"; };
-		DA5F944818F0A292005AD151 /* UniqueIDCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqueIDCounter.m; sourceTree = "<group>"; };
+		DA5F944A18F6693C005AD151 /* Interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
+		DA5F944B18F6693C005AD151 /* Interval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
+		DA5F944D18F6693C005AD151 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		DA5F944E18F6693C005AD151 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		DA5F945018F6693C005AD151 /* UniqueIDCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqueIDCounter.h; sourceTree = "<group>"; };
+		DA5F945118F6693C005AD151 /* UniqueIDCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqueIDCounter.m; sourceTree = "<group>"; };
 		DADF1B3318CAB2B600126226 /* AYB.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AYB.caf; sourceTree = SOURCE_ROOT; };
 		DADF1B3518CAB45900126226 /* alarmSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarmSound.caf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -158,13 +158,13 @@
 				D8A1B96418BAFAFB0097559B /* AppDelegate.m */,
 				D8A1B96618BAFAFB0097559B /* Images.xcassets */,
 				D8A1B95B18BAFAFB0097559B /* Supporting Files */,
+				DA5F944A18F6693C005AD151 /* Interval.h */,
+				DA5F945018F6693C005AD151 /* UniqueIDCounter.h */,
+				DA5F945118F6693C005AD151 /* UniqueIDCounter.m */,
+				DA5F944D18F6693C005AD151 /* Timer.h */,
+				DA5F944E18F6693C005AD151 /* Timer.m */,
+				DA5F944B18F6693C005AD151 /* Interval.m */,
 				D8A1B99B18C598F40097559B /* RunTimeModel.xcdatamodeld */,
-				DA5F944118F0A292005AD151 /* Interval.h */,
-				DA5F944218F0A292005AD151 /* Interval.m */,
-				DA5F944418F0A292005AD151 /* Timer.h */,
-				DA5F944518F0A292005AD151 /* Timer.m */,
-				DA5F944718F0A292005AD151 /* UniqueIDCounter.h */,
-				DA5F944818F0A292005AD151 /* UniqueIDCounter.m */,
 			);
 			path = RunTime;
 			sourceTree = "<group>";
@@ -319,13 +319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5F944918F0A292005AD151 /* UniqueIDCounter.m in Sources */,
+				DA5F945218F6693C005AD151 /* UniqueIDCounter.m in Sources */,
 				D8A1B99418C5975C0097559B /* SavedTimersViewController.m in Sources */,
+				DA5F944C18F6693C005AD151 /* Interval.m in Sources */,
+				DA5F944F18F6693C005AD151 /* Timer.m in Sources */,
 				D8A1B96518BAFAFB0097559B /* AppDelegate.m in Sources */,
 				D8A1B99D18C598F40097559B /* RunTimeModel.xcdatamodeld in Sources */,
 				D8A1B98F18BC4CAF0097559B /* QuickTimerViewController.m in Sources */,
-				DA5F944318F0A292005AD151 /* Interval.m in Sources */,
-				DA5F944618F0A292005AD151 /* Timer.m in Sources */,
 				D8A1B96118BAFAFB0097559B /* main.m in Sources */,
 				D8C0943718E2787F00A76D75 /* EditTimersViewController.m in Sources */,
 				D8C0942E18E2771400A76D75 /* RunTimerViewController.m in Sources */,
