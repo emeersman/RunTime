@@ -53,6 +53,9 @@
 
 - (IBAction)addInstruction:(id)sender
 {
+    //for getting uniqueID
+     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
     //add interval to interval list that are in the timer
     NSManagedObjectContext* context = [self managedObjectContext];
     Interval  * newInterval = [NSEntityDescription
@@ -70,6 +73,8 @@
     newInterval.hours = [NSNumber numberWithInt:hours];
     newInterval.minutes = [NSNumber numberWithInt:minutes];
     newInterval.seconds = [NSNumber numberWithInt:seconds];
+    
+    newInterval.id = [NSNumber numberWithInt:[appDelegate getUniqueIDInterval]];
     
     NSError *error;
     if (![self.managedObjectContext save:&error])

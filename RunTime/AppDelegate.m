@@ -170,6 +170,8 @@
     return fetchedRecords;
 }
 
+//ONLY USE IF YOU KNOW WHAT YOU ARE DOING
+//mostly if needed for fetching. NEVER USE FOR SETTING.
 -(UniqueIDCounter*) viewUniqueID {
     //initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
@@ -208,6 +210,31 @@
     
     int newCounter = timerIDThing++; //the ++ happens AFTER the equal sign, apparently
     uniqueIDCounter.timerID = [NSNumber numberWithInteger:timerIDThing];
+    
+    return newCounter;
+    
+}
+
+-(int) getUniqueIDInterval {
+    
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    UniqueIDCounter* uniqueIDCounter = [self.managedObjectContext
+                                        executeFetchRequest:fetchRequest error:&error][0];
+    
+    int intervalIDThing = [uniqueIDCounter.intervalID intValue];
+    
+    int newCounter = intervalIDThing++; //the ++ happens AFTER the equal sign, apparently
+    uniqueIDCounter.intervalID = [NSNumber numberWithInteger:intervalIDThing];
     
     return newCounter;
     

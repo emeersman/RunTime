@@ -138,7 +138,7 @@
     } */
     
     Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.repeatCount];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, ID %@", interval.name, interval.id];
     
     // Configure the cell...
     
