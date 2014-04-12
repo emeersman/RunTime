@@ -18,5 +18,6 @@
 
 -(NSArray*) getAllSavedTimers;
 -(NSArray*) getAllSavedIntervals;
+-(int) getUniqueIDTimer;
 
 @end

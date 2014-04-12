@@ -158,11 +158,11 @@
 				D8A1B96418BAFAFB0097559B /* AppDelegate.m */,
 				D8A1B96618BAFAFB0097559B /* Images.xcassets */,
 				D8A1B95B18BAFAFB0097559B /* Supporting Files */,
-				DA5F944A18F6693C005AD151 /* Interval.h */,
 				DA5F945018F6693C005AD151 /* UniqueIDCounter.h */,
 				DA5F945118F6693C005AD151 /* UniqueIDCounter.m */,
 				DA5F944D18F6693C005AD151 /* Timer.h */,
 				DA5F944E18F6693C005AD151 /* Timer.m */,
+				DA5F944A18F6693C005AD151 /* Interval.h */,
 				DA5F944B18F6693C005AD151 /* Interval.m */,
 				D8A1B99B18C598F40097559B /* RunTimeModel.xcdatamodeld */,
 			);

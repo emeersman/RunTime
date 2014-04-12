@@ -47,8 +47,7 @@
         uniqueIDCounter.timerID = [NSNumber numberWithInt:1];
         uniqueIDCounter.intervalID = [NSNumber numberWithInt:1];
         
-        
-    }
+        }
     
     /*
      NSManagedObjectContext* context = [self managedObjectContext];
@@ -171,7 +170,7 @@
     return fetchedRecords;
 }
 
--(UniqueIDCounter*) getUniqueID {
+-(UniqueIDCounter*) viewUniqueID {
     //initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
     
@@ -187,6 +186,31 @@
                                         executeFetchRequest:fetchRequest error:&error][0];
     
     return uniqueIDCounter;
+}
+
+-(int) getUniqueIDTimer {
+    
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UniqueIDCounter"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    UniqueIDCounter* uniqueIDCounter = [self.managedObjectContext
+                                        executeFetchRequest:fetchRequest error:&error][0];
+   
+    int timerIDThing = [uniqueIDCounter.timerID intValue];
+    
+    int newCounter = timerIDThing++; //the ++ happens AFTER the equal sign, apparently
+    uniqueIDCounter.timerID = [NSNumber numberWithInteger:timerIDThing];
+    
+    return newCounter;
+    
 }
 
 

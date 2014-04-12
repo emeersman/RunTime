@@ -64,6 +64,8 @@
 
 - (IBAction)addTimer:(id)sender
 {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
     //Add timer to Saved Timers
     //  Creates, configures, returns an instance of Timer class
     NSManagedObjectContext* context = [self managedObjectContext];
@@ -74,6 +76,8 @@
     newTimer.name = _timerName.text;
     int repeats = [_timerRepeat.text intValue];
     newTimer.repeatCount = [NSNumber numberWithInt:repeats];
+    
+    newTimer.id = [NSNumber numberWithInt:[appDelegate getUniqueIDTimer]];
     
     // Take the array of intervals, save it to the new timer being constructed
     //newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
