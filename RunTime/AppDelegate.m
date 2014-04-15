@@ -170,9 +170,73 @@
     return fetchedRecords;
 }
 
+-(NSArray*) getAllUnlinkedIntervals {
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    //FIXME want this to be more descriptive (want "assigned == false")
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Interval"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    NSMutableArray* unlinkedFetchedRecords = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [fetchedRecords count]; i++)
+    {
+        Interval * currentInterval = fetchedRecords[i];
+        
+        if (currentInterval.assigned == 0)
+        {
+            [unlinkedFetchedRecords addObject:currentInterval];
+        }
+    }
+    
+    //returning fetched records
+    return unlinkedFetchedRecords;
+
+}
+
+//takes all unlinked intervals and makes them linked! :D
+-(void)markAllUnlinkedIntervals {
+    
+    //initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
+    
+    //setting entity to be queried
+    //FIXME want this to be more descriptive (want "assigned == false")
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Interval"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    //query on managedObjectContext with Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    NSMutableArray* unlinkedFetchedRecords = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < [fetchedRecords count]; i++)
+    {
+        Interval * currentInterval = fetchedRecords[i];
+        
+        if (currentInterval.assigned == 0)
+        {
+            currentInterval.assigned = [NSNumber numberWithInt:1];
+            [unlinkedFetchedRecords addObject:currentInterval];
+        }
+    }
+}
+
 //ONLY USE IF YOU KNOW WHAT YOU ARE DOING
 //mostly if needed for fetching. NEVER USE FOR SETTING.
 -(UniqueIDCounter*) viewUniqueID {
+    
     //initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [ [NSFetchRequest alloc] init];
     

@@ -37,7 +37,7 @@
     _managedObjectContext = appDelegate.managedObjectContext;
     [super viewDidLoad];
     
-    _fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
+    _fetchedIntervalsArray = [appDelegate getAllUnlinkedIntervals];
     [_intervalTable reloadData];
     
     //hacky hack from SavedTimersViewController.m
@@ -79,8 +79,14 @@
     
     newTimer.id = [NSNumber numberWithInt:[appDelegate getUniqueIDTimer]];
     
+    [appDelegate markAllUnlinkedIntervals];
+    
+    //in theory adding the interval to the timer!
+    //[newTimer addInstructionsObject:intervalToAdd];
+    
     // Take the array of intervals, save it to the new timer being constructed
-    //newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
+    newTimer.instructions = [NSOrderedSet orderedSetWithArray:_fetchedIntervalsArray];
+    
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

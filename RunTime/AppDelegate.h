@@ -18,6 +18,8 @@
 
 -(NSArray*) getAllSavedTimers;
 -(NSArray*) getAllSavedIntervals;
+-(NSArray*) getAllUnlinkedIntervals;
+-(void) markAllUnlinkedIntervals;
 -(int) getUniqueIDTimer;
 -(int) getUniqueIDInterval;
 
