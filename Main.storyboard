@@ -272,7 +272,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="kv3-jb-Rpb" id="gKz-Z6-UJ3"/>
+                                    <outlet property="dataSource" destination="kv3-jb-Rpb" id="Dxh-hN-sRM"/>
                                     <outlet property="delegate" destination="kv3-jb-Rpb" id="XT6-Ad-VZc"/>
                                 </connections>
                             </tableView>
@@ -357,7 +357,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="miniTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRp-RA-jsT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RRp-RA-jsT">
                                 <rect key="frame" x="13" y="291" width="280" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -387,6 +387,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
+                                    <outlet property="dataSource" destination="rDf-yg-W4X" id="gKz-Z6-UJ3"/>
                                     <outlet property="delegate" destination="rDf-yg-W4X" id="fxn-QH-Ly6"/>
                                 </connections>
                             </tableView>
@@ -432,7 +433,7 @@
                         <outlet property="beginTimer" destination="Wai-yu-JIH" id="y50-hg-52S"/>
                         <outlet property="instrId" destination="ISu-we-MlM" id="mIQ-Wp-4ax"/>
                         <outlet property="instrReps" destination="QV0-H1-EOv" id="GwH-Xw-zVI"/>
-                        <outlet property="miniTableView" destination="RRp-RA-jsT" id="OFA-pu-Kaf"/>
+                        <outlet property="miniTableView" destination="RRp-RA-jsT" id="qSV-aL-dV4"/>
                         <outlet property="resetTimer" destination="7uM-yG-DfA" id="unn-pA-QOW"/>
                         <outlet property="timerHr" destination="ahK-oj-DUl" id="Xit-Zc-6ui"/>
                         <outlet property="timerMin" destination="VQN-Q9-gZL" id="KKA-36-A1U"/>
@@ -596,6 +597,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="e70-9q-hMJ"/>
         <segue reference="IC0-KL-EBA"/>
-        <segue reference="8j7-rd-9yk"/>
+        <segue reference="U3Z-iC-TmJ"/>
     </inferredMetricsTieBreakers>
 </document>

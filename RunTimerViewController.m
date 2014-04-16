@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong)NSArray* fetchedIntervalsArray;
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 @end
 
 @implementation RunTimerViewController
@@ -48,12 +50,16 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    _managedObjectContext = appDelegate.managedObjectContext;
+    
+     [super viewDidLoad];
     
     // Fetch instructions array when transitioning from SavedTimer
-    _fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
+    //_fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
+    
+    _fetchedIntervalsArray = [selectTimer.instructions array];
+    
     [_miniTableView reloadData];// This SHOULD load them into the table, but something's up
     
     ///hacky hack from SavedTimers
@@ -109,7 +115,7 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, Seconds %@", interval.name, interval.repeatCount];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, ID %@", interval.name, interval.id];
     
     return cell;
 }

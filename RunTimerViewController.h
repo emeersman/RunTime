@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Timer.h"
 
-@interface RunTimerViewController : UIViewController <UITableViewDelegate>
+@interface RunTimerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *beginTimer;
 @property (strong, nonatomic) NSTimer *currTimer;
