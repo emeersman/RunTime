@@ -23,4 +23,6 @@
 -(int) getUniqueIDTimer;
 -(int) getUniqueIDInterval;
 
+-(void) deleteUnlinkedIntervals;
+
 @end

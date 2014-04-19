@@ -304,5 +304,21 @@
     
 }
 
+//to be called when leaving the set timer page with unlinked intervals
+-(void) deleteUnlinkedIntervals {
+    
+    NSArray * unlinked = [self getAllUnlinkedIntervals];
+    
+    int length = [unlinked count];
+    
+    for (int i = length-1; i < 0; i--)
+    {
+        [_managedObjectContext deleteObject:unlinked[i]];
+    }
+    
+    //[NSManagedObjectContext deleteObject:interval]
+    
+}
+
 
 @end
