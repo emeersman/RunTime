@@ -15,6 +15,8 @@
 //linked to the Save Timer button in the navigation bar!
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveTimerButtonBar;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonBar;
+
 //the table in intervals!
 @property (weak, nonatomic) IBOutlet UITableView *intervalTable;
 

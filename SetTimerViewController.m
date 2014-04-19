@@ -60,6 +60,13 @@
     {
         [self saveNewTimer:sender];
     }
+    
+    if (sender == self.backButtonBar)
+    {
+        NSLog(@"WE DID THE DOODLY");
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate deleteUnlinkedIntervals];
+    }
 }
 
 - (IBAction)addTimer:(id)sender

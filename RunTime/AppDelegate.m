@@ -311,10 +311,16 @@
     
     int length = [unlinked count];
     
-    for (int i = length-1; i < 0; i--)
+    for (int i = 0; i < length; i++)
     {
+        NSLog(@"bitches");
         [_managedObjectContext deleteObject:unlinked[i]];
     }
+    
+    NSError * error;
+    
+    [_managedObjectContext save:&error];
+    [[_managedObjectContext parentContext] save:&error];
     
     //[NSManagedObjectContext deleteObject:interval]
     
