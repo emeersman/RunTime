@@ -59,6 +59,11 @@
     if (sender == self.saveTimerButtonBar)
     {
         [self saveNewTimer:sender];
+        
+        NSError * error;
+        
+        [_managedObjectContext save:&error];
+        [[_managedObjectContext parentContext] save:&error];
     }
     
     if (sender == self.backButtonBar)
