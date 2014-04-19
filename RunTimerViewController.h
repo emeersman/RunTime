@@ -32,4 +32,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *timerReps;
 @property (weak, nonatomic) IBOutlet UITextField *instrReps;
 
+
+extern NSInteger secValueC;
+extern NSInteger minValueC;
+extern NSInteger hrValueC;
+extern BOOL startedC;
 @end

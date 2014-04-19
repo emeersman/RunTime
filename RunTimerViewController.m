@@ -21,14 +21,16 @@
 
 @implementation RunTimerViewController
 
+
+
 @synthesize selectTimer;
 int currInstr = 0;
 
-int secValueC = 0;
+//int secValueC = 0;
 int secCountDownC = 0;
-int minValueC = 0;
+//int minValueC = 0;
 int minCountDownC = 0;
-int hrValueC = 0;
+//int hrValueC = 0;
 int hrCountDownC = 0;
 int instrValue = 0;
 int instrCountDown = 0;
@@ -54,6 +56,17 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
     _managedObjectContext = appDelegate.managedObjectContext;
     
      [super viewDidLoad];
+    
+    self.timerHr.delegate = self;
+    self.timerMin.delegate = self;
+    self.timerSec.delegate = self;
+    self.instrId.delegate = self;
+    self.timerReps.delegate = self;
+    self.instrReps.delegate = self;
+    
+    // set sound
+//    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+//    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
     
     // Fetch instructions array when transitioning from SavedTimer
     //_fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
@@ -81,6 +94,28 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
     _timerMin.userInteractionEnabled = NO;
     _timerSec.userInteractionEnabled = NO;
 }
+
+- (IBAction)secValueCChanged:(id)sender {
+    //secValueC = [_timerSec.text intValue];
+    secCountDownC = [_timerSec.text intValue];
+}
+
+- (IBAction)minValueCChanged:(id)sender {
+    //minValueC = [_timerMin.text intValue];
+    minCountDownC = [_timerMin.text intValue];
+}
+
+- (IBAction)hrValueCChanged:(id)sender {
+    //hrValueC = [_timerHr.text intValue];
+    hrCountDownC = [_timerHr.text intValue];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *) timerField {
+    [self.view endEditing:YES];
+    [timerField resignFirstResponder];
+    return YES;
+}
+
 
 // Depending on what instruction we're on, sets text field values for that instruction
 -(void) updateInstruction
@@ -122,6 +157,9 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
 
 // What happens when we press run!
 - (IBAction)beginTimer:(id)sender {
+    
+    NSLog(@"timer is run");
+    
     if (!startedC) {
         _currTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                       target:self
@@ -131,11 +169,11 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
         
         NSRunLoop *runner = [NSRunLoop currentRunLoop];
         [runner addTimer: _currTimer forMode: NSDefaultRunLoopMode];
-        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+        //[sender setTitle:@"Pause" forState:UIControlStateNormal];
         startedC = YES;
     }
     else {
-        [sender setTitle:@"Start" forState:UIControlStateNormal];
+        //[sender setTitle:@"Start" forState:UIControlStateNormal];
         startedC = NO;
         if(_currTimer){
             [_currTimer invalidate];
@@ -240,6 +278,7 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
     currInstr = 0;
     [self updateInstruction];
 }
+
 
 
 - (void)didReceiveMemoryWarning
