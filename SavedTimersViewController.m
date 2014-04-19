@@ -102,6 +102,7 @@ int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
         RunTimerViewController *destViewController = segue.destinationViewController;
         destViewController.selectTimer = tempTimer;
     }
+    
 }
 
 /*
