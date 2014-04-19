@@ -293,6 +293,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButtonBar" destination="dXf-ys-Wwm" id="Cvg-4r-13k"/>
                         <outlet property="intervalTable" destination="D1G-bE-Msc" id="oIh-b8-1UN"/>
                         <outlet property="saveTimerButtonBar" destination="csA-3g-2v1" id="MSj-tg-AHr"/>
                         <outlet property="timerName" destination="mme-IB-VUd" id="aH7-jQ-x4f"/>
