@@ -144,6 +144,15 @@ SystemSoundID alarmSound;
 // Depending on what instruction we're on, sets text field values for that instruction
 -(void) updateInstruction
 {
+    
+    NSLog(@"Current instr: %d, count: %d", currInstr, [selectTimer.instructions count]);
+    
+    if (currInstr == [selectTimer.instructions count])
+    {
+        [self resetTimer];
+        return;
+    }
+    
     if([selectTimer.instructions count] > 0)
     {
         Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
@@ -268,21 +277,20 @@ SystemSoundID alarmSound;
                 {
                     alarmOnC = 0;
                 }
-            } else //zero things  // h == 0; m == 0; s == 0;
+            }
+            else //zero things  // h == 0; m == 0; s == 0;
             {
-                //NSLog(@"h == 0; m == 0; s == 0;");
+                NSLog(@"h == 0; m == 0; s == 0;");
                 if (alarmOnC == 0) //readd this statement if we only want the alarm to sound once
                 {
                     //NSLog(@"alarmOnC was 0 and is now 1");
                     AudioServicesPlayAlertSound(alarmSound);
                     alarmOnC++;
-                    [self resetTimer];
                 }
                 // if instruction repeat is above 0, repeat that instruction again
                 if (instrCountDown > 0)
                 {
                     --instrCountDown; // set visual display of instr to be one less, as well
-                    [self finishInstr];
                     [self updateInstruction];
                     // start the timer
                 } else { // else go to next instruction, if there is one
@@ -298,6 +306,7 @@ SystemSoundID alarmSound;
                          [self updateInstruction];
                          //start timer with next instruction
                         }
+                        
                     }
                 }
             }
@@ -317,12 +326,12 @@ SystemSoundID alarmSound;
 
 // Reset button is pressed!
 - (IBAction)resetTimer:(id)sender {
+    NSLog(@"Resetting the timer");
     if(_currTimer){
         [_currTimer invalidate];
         _currTimer = nil;
     }
     currInstr = 0;
-    [self updateInstruction];
 }
 
 // Just finished an instruction, create next timer
