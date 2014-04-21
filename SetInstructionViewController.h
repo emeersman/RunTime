@@ -20,5 +20,6 @@
 
 @property (nonatomic, retain) NSString *timerString;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonBar;
 
 @end

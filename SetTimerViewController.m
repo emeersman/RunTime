@@ -45,6 +45,8 @@
     //hacky hack from SavedTimersViewController.m
     [_intervalTable registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"Cell"];
+    
+    _timerName.text = _savedTimerString;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *) timerField {
