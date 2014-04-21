@@ -26,11 +26,11 @@
 @synthesize selectTimer;
 int currInstr = 0;
 
-//int secValueC = 0;
+int secValueC = 0;
 int secCountDownC = 0;
-//int minValueC = 0;
+int minValueC = 0;
 int minCountDownC = 0;
-//int hrValueC = 0;
+int hrValueC = 0;
 int hrCountDownC = 0;
 int instrValue = 0;
 int instrCountDown = 0;
@@ -95,18 +95,18 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
     _timerSec.userInteractionEnabled = NO;
 }
 
-- (IBAction)secValueCChanged:(id)sender {
-    //secValueC = [_timerSec.text intValue];
+- (IBAction)secValueChanged:(id)sender {
+    secValueC = [_timerSec.text intValue];
     secCountDownC = [_timerSec.text intValue];
 }
 
-- (IBAction)minValueCChanged:(id)sender {
-    //minValueC = [_timerMin.text intValue];
+- (IBAction)minValueChanged:(id)sender {
+    minValueC = [_timerMin.text intValue];
     minCountDownC = [_timerMin.text intValue];
 }
 
-- (IBAction)hrValueCChanged:(id)sender {
-    //hrValueC = [_timerHr.text intValue];
+- (IBAction)hrValueChanged:(id)sender {
+    hrValueC = [_timerHr.text intValue];
     hrCountDownC = [_timerHr.text intValue];
 }
 
@@ -159,6 +159,10 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
 - (IBAction)beginTimer:(id)sender {
     
     NSLog(@"timer is run");
+    secCountDownC = [_timerSec.text intValue];
+    minCountDownC = [_timerMin.text intValue];
+    hrCountDownC = [_timerHr.text intValue];
+    
     
     if (!startedC) {
         _currTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -184,10 +188,14 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
 
 // This happens every tick of the timer, deals with instructions, reps, etc.
 -(void)updateTimer:(NSTimer *)timer {
+    
+    
+    
     if(hrCountDownC > 0)
     {
-        if(minCountDownC == 0 && secCountDownC == 0)
+        if(minCountDownC == 0 && secCountDownC == 0) // h > 0; m == 0; s == 0;
         {
+            NSLog(@"h > 0; m == 0; s == 0;");
             self.timerHr.text = [NSString stringWithFormat:@"%d", --hrCountDownC];
             self.timerMin.text = [NSString stringWithFormat:@"%d", 59];
             self.timerSec.text = [NSString stringWithFormat:@"%d", 59];
@@ -195,39 +203,44 @@ int STATIC_CELLS = 1; //not a magic number! The "new" button.
             secCountDownC = 59;
         } else {
             if(minCountDownC > 0) {
-                if(secCountDownC == 0) {
+                if(secCountDownC == 0) { // h > 0; m > 0; s == 0;
+                    NSLog(@"h > 0; m > 0; s == 0;");
                     self.timerMin.text = [NSString stringWithFormat:@"%d", --minCountDownC];
                     self.timerSec.text = [NSString stringWithFormat:@"%d", 59];
                     secCountDownC = 59;
-                } else
-                {
+                } else {  // h > 0; m > 0; s > 0;
+                    NSLog(@"h > 0; m > 0; s > 0;");
                     self.timerSec.text = [NSString stringWithFormat:@"%d", --secCountDownC];
                 }
-            } else{
+            } else {  // h > 0; m == 0; s > 0;
+                NSLog(@"h > 0; m == 0; s > 0;");
                 self.timerSec.text = [NSString stringWithFormat:@"%d", --secCountDownC];
             }
         }
     } else {
         if(minCountDownC > 0) {
-            if(secCountDownC == 0) {
+            if(secCountDownC == 0) {   // h == 0; m > 0; s == 0;
+                NSLog(@"h == 0; m > 0; s == 0;");
                 self.timerMin.text = [NSString stringWithFormat:@"%d", --minCountDownC];
                 self.timerSec.text = [NSString stringWithFormat:@"%d", 59];
                 secCountDownC = 59;
-            } else
-            {
+            } else {  // h == 0; m > 0; s > 0;
+                NSLog(@"h == 0; m > 0; s > 0;");
                 self.timerSec.text = [NSString stringWithFormat:@"%d", --secCountDownC];
             }
-        } else{
-            if(secCountDownC > 0)
+        } else {
+            if(secCountDownC > 0)  // h == 0; m == 0; s > 0;
             {
+                NSLog(@"h == 0; m == 0; s > 0;");
                 self.timerSec.text = [NSString stringWithFormat:@"%d", --secCountDownC];
                 
                 if (alarmOnC != 0)
                 {
                     alarmOnC = 0;
                 }
-            } else //zero things
+            } else //zero things  // h == 0; m == 0; s == 0;
             {
+                NSLog(@"h == 0; m == 0; s == 0;");
                 if (alarmOnC == 0) //readd this statement if we only want the alarm to sound once
                 {
                     //AudioServicesPlayAlertSound(alarmSound);
