@@ -141,17 +141,11 @@ SystemSoundID alarmSound;
 -(void) updateInstruction
 {
     
-    NSLog(@"Current instr: %d, count: %d", currInstr, [selectTimer.instructions count]);
-    
     if (currInstr == [selectTimer.instructions count])
     {
-        
-        //TODO: check for instr repeats
-        NSLog(@"Resetting timer (in theory)");
         if(_currTimer) {
             [_currTimer invalidate];
             _currTimer = nil;
-            NSLog(@"Timer invalidated");
         }
         return;
     }
@@ -163,6 +157,25 @@ SystemSoundID alarmSound;
         _timerMin.text = [tempInstr.minutes stringValue];
         _timerSec.text = [tempInstr.seconds stringValue];
         _instrReps.text = [tempInstr.repeatCount stringValue];
+        
+        secCountDownC = [_timerSec.text intValue];
+        minCountDownC = [_timerMin.text intValue];
+        hrCountDownC = [_timerHr.text intValue];
+    }
+}
+
+// Repeats an instruction
+-(void) repeatInstruction
+{
+    
+    if([selectTimer.instructions count] > 0)
+    {
+        Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
+        _instrId.text = tempInstr.name;
+        _timerHr.text = [tempInstr.hours stringValue];
+        _timerMin.text = [tempInstr.minutes stringValue];
+        _timerSec.text = [tempInstr.seconds stringValue];
+        _instrReps.text = [@(instrCountDown) stringValue];
         
         secCountDownC = [_timerSec.text intValue];
         minCountDownC = [_timerMin.text intValue];
@@ -199,6 +212,8 @@ SystemSoundID alarmSound;
     
     currInstr = 0;
     startedC = NO;
+    Interval *firstInstr = [selectTimer.instructions objectAtIndex:0];
+    instrCountDown = [firstInstr.repeatCount integerValue] - 1;
     
     secCountDownC = [_timerSec.text intValue];
     minCountDownC = [_timerMin.text intValue];
@@ -229,8 +244,6 @@ SystemSoundID alarmSound;
 
 // This happens every tick of the timer, deals with instructions, reps, etc.
 -(void)updateTimer:(NSTimer *)timer {
-    
-    
     
     if(hrCountDownC > 0)
     {
@@ -283,7 +296,7 @@ SystemSoundID alarmSound;
             
             else //zero things  // h == 0; m == 0; s == 0;
             {
-                NSLog(@"h == 0; m == 0; s == 0;");
+                //NSLog(@"h == 0; m == 0; s == 0;");
                 
                 // run sound
                 if (alarmOnC == 0) //readd this statement if we only want the alarm to sound once
@@ -298,9 +311,8 @@ SystemSoundID alarmSound;
                 {
                     --instrCountDown; // set visual display of instr to be one less, as well
                     
-                    // TODO: just rerun the current one
+                    [self repeatInstruction];
                     
-                    // start the timer
                 }
                 else
                 { // else go to next instruction, if there is one
