@@ -10,6 +10,7 @@
 #import "Timer.h"
 #import "Interval.h"
 #import "AppDelegate.h"
+#import "SetInstructionViewController.h"
 
 @interface SetTimerViewController ()
 
@@ -28,6 +29,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
