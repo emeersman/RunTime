@@ -10,6 +10,7 @@
 #import "Timer.h"
 #import "Interval.h"
 #import "AppDelegate.h"
+#import "SetInstructionViewController.h"
 
 @interface SetTimerViewController ()
 
@@ -28,6 +29,7 @@
     if (self) {
         // Custom initialization
     }
+    
     return self;
 }
 
@@ -68,9 +70,14 @@
     
     if (sender == self.backButtonBar)
     {
-        NSLog(@"WE DID THE DOODLY");
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate deleteUnlinkedIntervals];
+    }
+    
+    if (sender == self.intervalNameButton)
+    {
+        SetInstructionViewController *controller = (SetInstructionViewController *)segue.destinationViewController;
+        controller.timerString = _timerName.text;
     }
 }
 

@@ -17,8 +17,10 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonBar;
 
+
 //the table in intervals!
 @property (weak, nonatomic) IBOutlet UITableView *intervalTable;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *intervalNameButton;
 
 @end
