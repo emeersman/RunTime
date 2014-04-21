@@ -73,6 +73,12 @@
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate deleteUnlinkedIntervals];
     }
+    
+    if (sender == self.intervalNameButton)
+    {
+        SetInstructionViewController *controller = (SetInstructionViewController *)segue.destinationViewController;
+        controller.timerString = _timerName.text;
+    }
 }
 
 - (IBAction)addTimer:(id)sender
