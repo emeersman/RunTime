@@ -88,10 +88,6 @@ SystemSoundID alarmSound;
     self.timerReps.delegate = self;
     self.instrReps.delegate = self;
     
-    // set sound
-//    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
-//    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
-    
     // Fetch instructions array when transitioning from SavedTimer
     //_fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
     
@@ -278,27 +274,37 @@ SystemSoundID alarmSound;
                     alarmOnC = 0;
                 }
             }
+            
             else //zero things  // h == 0; m == 0; s == 0;
             {
                 NSLog(@"h == 0; m == 0; s == 0;");
+                
+                // run sound
                 if (alarmOnC == 0) //readd this statement if we only want the alarm to sound once
                 {
                     //NSLog(@"alarmOnC was 0 and is now 1");
                     AudioServicesPlayAlertSound(alarmSound);
                     alarmOnC++;
                 }
+                
                 // if instruction repeat is above 0, repeat that instruction again
                 if (instrCountDown > 0)
                 {
                     --instrCountDown; // set visual display of instr to be one less, as well
-                    [self updateInstruction];
+                    
+                    // TODO: just rerun the current one
+                    
                     // start the timer
-                } else { // else go to next instruction, if there is one
-                    if(currInstr < [selectTimer.instructions count] - 1)
+                }
+                else
+                { // else go to next instruction, if there is one
+                    if(currInstr < [selectTimer.instructions count])
                     {
                         ++currInstr;
                         [self updateInstruction];
-                    } else { //check if timer still needs to be repeated
+                    }
+                    else
+                    { //check if timer still needs to be repeated
                         if (repCountDown > 0)
                         {
                          --repCountDown;
@@ -306,10 +312,10 @@ SystemSoundID alarmSound;
                          [self updateInstruction];
                          //start timer with next instruction
                         }
-                        
                     }
                 }
             }
+            
         }
     }
     // Puts zeros in tens place when necessary
