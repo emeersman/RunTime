@@ -313,7 +313,6 @@
     
     for (int i = 0; i < length; i++)
     {
-        NSLog(@"bitches");
         [_managedObjectContext deleteObject:unlinked[i]];
     }
     
