@@ -23,6 +23,7 @@
 // Reset button
 @property (weak, nonatomic) IBOutlet UIButton *resetTimer;
 @property (nonatomic) void *finishInstr;
+@property void *finishTimer;
 
 // All of the text fields
 @property (weak, nonatomic) IBOutlet UITextField *timerHr;

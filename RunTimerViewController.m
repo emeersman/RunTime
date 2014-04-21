@@ -145,11 +145,17 @@ SystemSoundID alarmSound;
     
     if (currInstr == [selectTimer.instructions count])
     {
-        [self resetTimer];
+        
+        //TODO: check for instr repeats
+        NSLog(@"Resetting timer (in theory)");
+        if(_currTimer) {
+            [_currTimer invalidate];
+            _currTimer = nil;
+            NSLog(@"Timer invalidated");
+        }
         return;
     }
-    
-    if([selectTimer.instructions count] > 0)
+    else if([selectTimer.instructions count] > 0)
     {
         Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
         _instrId.text = tempInstr.name;
@@ -341,10 +347,11 @@ SystemSoundID alarmSound;
 }
 
 // Just finished an instruction, create next timer
-- (IBAction)finishInstr:(id)sender {
-    if(_currTimer){
+- (void)finishTimer:(id)sender {
+    if(_currTimer) {
         [_currTimer invalidate];
         _currTimer = nil;
+        NSLog(@"Timer invalidated");
     }
     [self updateInstruction];
 }
