@@ -41,7 +41,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //will want a transition for saving instructions, as with saving timers
-    if (sender == self.saveIntervalButtonBar)
+    if (sender == self.saveIntervalButtonBar || sender == self.backButtonBar)
     {
         [self saveNewInstruction:sender];
         

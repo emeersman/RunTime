@@ -139,6 +139,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButtonBar" destination="c9d-8C-Pp7" id="ITZ-Hn-bjp"/>
                         <outlet property="iHour" destination="RUl-bJ-iG0" id="OzS-Cg-fVa"/>
                         <outlet property="iMinute" destination="Uc7-8d-reh" id="TLE-YA-bbC"/>
                         <outlet property="iSecond" destination="L0K-Eq-htD" id="boH-Cr-8zC"/>
