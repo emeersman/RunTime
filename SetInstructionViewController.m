@@ -9,6 +9,7 @@
 #import "SetInstructionViewController.h"
 #import "AppDelegate.h"
 #import "Interval.h"
+#import "SetTimerViewController.h"
 
 @interface SetInstructionViewController ()
 
@@ -43,6 +44,10 @@
     if (sender == self.saveIntervalButtonBar)
     {
         [self saveNewInstruction:sender];
+        
+        SetTimerViewController *controller = (SetTimerViewController *)segue.destinationViewController;
+        controller.savedTimerString = _timerString;
+        
     }
 }
 
