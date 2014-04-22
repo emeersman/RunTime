@@ -88,10 +88,6 @@ SystemSoundID alarmSound;
     self.timerReps.delegate = self;
     self.instrReps.delegate = self;
     
-    // set sound
-//    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
-//    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
-    
     // Fetch instructions array when transitioning from SavedTimer
     //_fetchedIntervalsArray = [appDelegate getAllSavedIntervals];
     
@@ -144,7 +140,16 @@ SystemSoundID alarmSound;
 // Depending on what instruction we're on, sets text field values for that instruction
 -(void) updateInstruction
 {
-    if([selectTimer.instructions count] > 0)
+    
+    if (currInstr == [selectTimer.instructions count])
+    {
+        if(_currTimer) {
+            [_currTimer invalidate];
+            _currTimer = nil;
+        }
+        return;
+    }
+    else if([selectTimer.instructions count] > 0)
     {
         Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
         _instrId.text = tempInstr.name;
@@ -152,6 +157,25 @@ SystemSoundID alarmSound;
         _timerMin.text = [tempInstr.minutes stringValue];
         _timerSec.text = [tempInstr.seconds stringValue];
         _instrReps.text = [tempInstr.repeatCount stringValue];
+        
+        secCountDownC = [_timerSec.text intValue];
+        minCountDownC = [_timerMin.text intValue];
+        hrCountDownC = [_timerHr.text intValue];
+    }
+}
+
+// Repeats an instruction
+-(void) repeatInstruction
+{
+    
+    if([selectTimer.instructions count] > 0)
+    {
+        Interval *tempInstr = [selectTimer.instructions objectAtIndex:currInstr];
+        _instrId.text = tempInstr.name;
+        _timerHr.text = [tempInstr.hours stringValue];
+        _timerMin.text = [tempInstr.minutes stringValue];
+        _timerSec.text = [tempInstr.seconds stringValue];
+        _instrReps.text = [@(instrCountDown) stringValue];
         
         secCountDownC = [_timerSec.text intValue];
         minCountDownC = [_timerMin.text intValue];
@@ -188,6 +212,8 @@ SystemSoundID alarmSound;
     
     currInstr = 0;
     startedC = NO;
+    Interval *firstInstr = [selectTimer.instructions objectAtIndex:0];
+    instrCountDown = [firstInstr.repeatCount integerValue] - 1;
     
     secCountDownC = [_timerSec.text intValue];
     minCountDownC = [_timerMin.text intValue];
@@ -218,8 +244,6 @@ SystemSoundID alarmSound;
 
 // This happens every tick of the timer, deals with instructions, reps, etc.
 -(void)updateTimer:(NSTimer *)timer {
-    
-    
     
     if(hrCountDownC > 0)
     {
@@ -268,29 +292,37 @@ SystemSoundID alarmSound;
                 {
                     alarmOnC = 0;
                 }
-            } else //zero things  // h == 0; m == 0; s == 0;
+            }
+            
+            else //zero things  // h == 0; m == 0; s == 0;
             {
                 //NSLog(@"h == 0; m == 0; s == 0;");
+                
+                // run sound
                 if (alarmOnC == 0) //readd this statement if we only want the alarm to sound once
                 {
                     //NSLog(@"alarmOnC was 0 and is now 1");
                     AudioServicesPlayAlertSound(alarmSound);
                     alarmOnC++;
-                    [self resetTimer];
                 }
+                
                 // if instruction repeat is above 0, repeat that instruction again
                 if (instrCountDown > 0)
                 {
                     --instrCountDown; // set visual display of instr to be one less, as well
-                    [self finishInstr];
-                    [self updateInstruction];
-                    // start the timer
-                } else { // else go to next instruction, if there is one
-                    if(currInstr < [selectTimer.instructions count] - 1)
+                    
+                    [self repeatInstruction];
+                    
+                }
+                else
+                { // else go to next instruction, if there is one
+                    if(currInstr < [selectTimer.instructions count])
                     {
                         ++currInstr;
                         [self updateInstruction];
-                    } else { //check if timer still needs to be repeated
+                    }
+                    else
+                    { //check if timer still needs to be repeated
                         if (repCountDown > 0)
                         {
                          --repCountDown;
@@ -301,6 +333,7 @@ SystemSoundID alarmSound;
                     }
                 }
             }
+            
         }
     }
     // Puts zeros in tens place when necessary
@@ -317,19 +350,20 @@ SystemSoundID alarmSound;
 
 // Reset button is pressed!
 - (IBAction)resetTimer:(id)sender {
+    NSLog(@"Resetting the timer");
     if(_currTimer){
         [_currTimer invalidate];
         _currTimer = nil;
     }
     currInstr = 0;
-    [self updateInstruction];
 }
 
 // Just finished an instruction, create next timer
-- (IBAction)finishInstr:(id)sender {
-    if(_currTimer){
+- (void)finishTimer:(id)sender {
+    if(_currTimer) {
         [_currTimer invalidate];
         _currTimer = nil;
+        NSLog(@"Timer invalidated");
     }
     [self updateInstruction];
 }
