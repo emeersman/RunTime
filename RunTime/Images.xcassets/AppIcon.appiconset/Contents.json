@@ -9,13 +9,13 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "RunTimeLogoSmall-1.png",
+      "filename" : "RunTimeLogoMedium.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "RunTimeLogoSmall-2.png",
+      "filename" : "RunTimeLogoLarge.png",
       "scale" : "2x"
     }
   ],
