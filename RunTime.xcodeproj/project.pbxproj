@@ -37,6 +37,8 @@
 		DAB98B8E1906DD3300DA1540 /* RunTimeLogoSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB98B8D1906DD3300DA1540 /* RunTimeLogoSmall.png */; };
 		DAB98B911906E08400DA1540 /* RunTimeLogoLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB98B8F1906E08400DA1540 /* RunTimeLogoLarge.png */; };
 		DAB98B921906E08400DA1540 /* RunTimeLogoMedium.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB98B901906E08400DA1540 /* RunTimeLogoMedium.png */; };
+		DAB98B991906E3B100DA1540 /* SplashScreenLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB98B971906E3B100DA1540 /* SplashScreenLarge.png */; };
+		DAB98B9A1906E3B100DA1540 /* SplashScreenSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = DAB98B981906E3B100DA1540 /* SplashScreenSmall.png */; };
 		DADF1B3418CAB2B600126226 /* AYB.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3318CAB2B600126226 /* AYB.caf */; };
 		DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = DADF1B3518CAB45900126226 /* alarmSound.caf */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		DAB98B8D1906DD3300DA1540 /* RunTimeLogoSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunTimeLogoSmall.png; sourceTree = "<group>"; };
 		DAB98B8F1906E08400DA1540 /* RunTimeLogoLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunTimeLogoLarge.png; sourceTree = "<group>"; };
 		DAB98B901906E08400DA1540 /* RunTimeLogoMedium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunTimeLogoMedium.png; sourceTree = "<group>"; };
+		DAB98B971906E3B100DA1540 /* SplashScreenLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenLarge.png; sourceTree = "<group>"; };
+		DAB98B981906E3B100DA1540 /* SplashScreenSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreenSmall.png; sourceTree = "<group>"; };
 		DADF1B3318CAB2B600126226 /* AYB.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AYB.caf; sourceTree = SOURCE_ROOT; };
 		DADF1B3518CAB45900126226 /* alarmSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarmSound.caf; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -159,10 +163,12 @@
 		D8A1B95A18BAFAFB0097559B /* RunTime */ = {
 			isa = PBXGroup;
 			children = (
-				DAB98B8F1906E08400DA1540 /* RunTimeLogoLarge.png */,
-				DAB98B901906E08400DA1540 /* RunTimeLogoMedium.png */,
-				DAB98B8B1906DB4500DA1540 /* RunTimeLogo.png */,
+				DAB98B971906E3B100DA1540 /* SplashScreenLarge.png */,
+				DAB98B981906E3B100DA1540 /* SplashScreenSmall.png */,
 				DAB98B8D1906DD3300DA1540 /* RunTimeLogoSmall.png */,
+				DAB98B901906E08400DA1540 /* RunTimeLogoMedium.png */,
+				DAB98B8F1906E08400DA1540 /* RunTimeLogoLarge.png */,
+				DAB98B8B1906DB4500DA1540 /* RunTimeLogo.png */,
 				D8A1B99818C598190097559B /* ViewControllers */,
 				D8A1B99018C4FF130097559B /* skeletor.jpg */,
 				D8A1B98B18BC44790097559B /* heman.jpg */,
@@ -309,6 +315,7 @@
 				D8A1B99118C4FF130097559B /* skeletor.jpg in Resources */,
 				D8A1B98618BAFB920097559B /* Main.storyboard in Resources */,
 				D8A1B95F18BAFAFB0097559B /* InfoPlist.strings in Resources */,
+				DAB98B9A1906E3B100DA1540 /* SplashScreenSmall.png in Resources */,
 				DAB98B911906E08400DA1540 /* RunTimeLogoLarge.png in Resources */,
 				DAB98B921906E08400DA1540 /* RunTimeLogoMedium.png in Resources */,
 				DADF1B3418CAB2B600126226 /* AYB.caf in Resources */,
@@ -316,6 +323,7 @@
 				DADF1B3618CAB45900126226 /* alarmSound.caf in Resources */,
 				D8A1B98C18BC44790097559B /* heman.jpg in Resources */,
 				DAB98B8E1906DD3300DA1540 /* RunTimeLogoSmall.png in Resources */,
+				DAB98B991906E3B100DA1540 /* SplashScreenLarge.png in Resources */,
 				DAB98B8C1906DB4500DA1540 /* RunTimeLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
