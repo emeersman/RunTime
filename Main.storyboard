@@ -670,7 +670,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title Screen" id="m9W-Ma-eUP"/>
+                    <navigationItem key="navigationItem" title="RunTime" id="m9W-Ma-eUP"/>
                     <connections>
                         <outlet property="resetTimer" destination="LZb-IB-xfC" id="sI6-BA-o4N"/>
                         <outlet property="startTimer" destination="D8R-XD-5bi" id="tGV-s6-OOP"/>
@@ -712,8 +712,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="U3Z-iC-TmJ"/>
-        <segue reference="iWm-Nd-TJR"/>
+        <segue reference="8j7-rd-9yk"/>
         <segue reference="IC0-KL-EBA"/>
+        <segue reference="e70-9q-hMJ"/>
     </inferredMetricsTieBreakers>
 </document>
