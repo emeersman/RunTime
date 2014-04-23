@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1790B00C1907921C00A34BBD /* EditSingleTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1790B00B1907921C00A34BBD /* EditSingleTimerViewController.m */; };
 		D8A1B95518BAFAFB0097559B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B95418BAFAFB0097559B /* Foundation.framework */; };
 		D8A1B95718BAFAFB0097559B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B95618BAFAFB0097559B /* CoreGraphics.framework */; };
 		D8A1B95918BAFAFB0097559B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A1B95818BAFAFB0097559B /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1790B00A1907921C00A34BBD /* EditSingleTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSingleTimerViewController.h; sourceTree = SOURCE_ROOT; };
+		1790B00B1907921C00A34BBD /* EditSingleTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSingleTimerViewController.m; sourceTree = SOURCE_ROOT; };
 		D8A1B95118BAFAFB0097559B /* RunTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A1B95418BAFAFB0097559B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8A1B95618BAFAFB0097559B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,6 +236,8 @@
 				D8A1B99318C5975B0097559B /* SavedTimersViewController.m */,
 				D8A1B98D18BC4CAF0097559B /* QuickTimerViewController.h */,
 				D8A1B98E18BC4CAF0097559B /* QuickTimerViewController.m */,
+				1790B00A1907921C00A34BBD /* EditSingleTimerViewController.h */,
+				1790B00B1907921C00A34BBD /* EditSingleTimerViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1790B00C1907921C00A34BBD /* EditSingleTimerViewController.m in Sources */,
 				DA5F945218F6693C005AD151 /* UniqueIDCounter.m in Sources */,
 				D8A1B99418C5975C0097559B /* SavedTimersViewController.m in Sources */,
 				DA5F944C18F6693C005AD151 /* Interval.m in Sources */,
