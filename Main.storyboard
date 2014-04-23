@@ -256,14 +256,19 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="kv3-jb-Rpb" id="SUe-Ud-KTG"/>
-                                    <outlet property="delegate" destination="kv3-jb-Rpb" id="y6h-tG-FE3"/>
+                                    <outlet property="dataSource" destination="vdQ-8j-38z" id="A0F-KB-HAw"/>
+                                    <outlet property="delegate" destination="vdQ-8j-38z" id="56w-dg-eSg"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="20b-1A-bpA"/>
+                    <connections>
+                        <outlet property="instructionTable" destination="TK9-H1-wgO" id="9ac-jE-qdH"/>
+                        <outlet property="repeatNumber" destination="e8n-Ia-3Ur" id="rum-89-HVo"/>
+                        <outlet property="timerNameField" destination="sZH-xF-MFz" id="t30-XY-qE0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cta-vZ-Mj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
