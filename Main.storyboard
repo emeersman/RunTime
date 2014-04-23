@@ -169,7 +169,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vdQ-8j-38z" kind="push" id="GlK-Oa-lXz"/>
+                                    <segue destination="vdQ-8j-38z" kind="push" identifier="editSavedTimer" id="GlK-Oa-lXz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -563,7 +563,7 @@
             </objects>
             <point key="canvasLocation" x="1756" y="-550"/>
         </scene>
-        <!--Quick Timer View Controller - Title Screen-->
+        <!--Quick Timer View Controller - RunTime-->
         <scene sceneID="B5l-77-CJG">
             <objects>
                 <viewController id="hL7-s2-myd" customClass="QuickTimerViewController" sceneMemberID="viewController">
