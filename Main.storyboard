@@ -263,16 +263,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="20b-1A-bpA"/>
+                    <navigationItem key="navigationItem" id="20b-1A-bpA">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="FxP-6f-iS7">
+                            <connections>
+                                <segue destination="mnU-Xj-JZM" kind="push" id="o3d-Bp-F6W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="instructionTable" destination="TK9-H1-wgO" id="9ac-jE-qdH"/>
                         <outlet property="repeatNumber" destination="e8n-Ia-3Ur" id="rum-89-HVo"/>
+                        <outlet property="saveBarButton" destination="FxP-6f-iS7" id="oaa-s8-603"/>
                         <outlet property="timerNameField" destination="sZH-xF-MFz" id="t30-XY-qE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cta-vZ-Mj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2201" y="175"/>
+            <point key="canvasLocation" x="2174" y="196"/>
         </scene>
         <!--Saved Timers View Controller - Saved Timers-->
         <scene sceneID="YdM-js-JDc">
@@ -284,7 +291,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="runSavedTimer" id="k9g-YE-kba">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k9g-YE-kba" id="hwS-7j-kLB">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -717,8 +724,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8j7-rd-9yk"/>
-        <segue reference="IC0-KL-EBA"/>
         <segue reference="e70-9q-hMJ"/>
+        <segue reference="che-6U-VID"/>
+        <segue reference="8j7-rd-9yk"/>
+        <segue reference="o3d-Bp-F6W"/>
     </inferredMetricsTieBreakers>
 </document>

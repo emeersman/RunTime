@@ -23,5 +23,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *repeatNumber;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 
 @end
