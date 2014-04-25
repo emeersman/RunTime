@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Timer.h"
 
-@interface EditSingleTimerViewController : UIViewController
+@interface EditSingleTimerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate>
+
+//the timer we selected from EdiTimersViewController
+@property (nonatomic, strong) IBOutlet Timer *selectTimer;
+
+//Table of instructions
+@property (weak, nonatomic) IBOutlet UITableView *instructionTable;
+
+//all of the text fields
+
+@property (weak, nonatomic) IBOutlet UITextField *timerNameField;
+
+@property (weak, nonatomic) IBOutlet UITextField *repeatNumber;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
 
 @end

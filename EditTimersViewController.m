@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "RunTimerViewController.h"
 #import "Timer.h"
+#import "EditSingleTimerViewController.h"
 
 @interface EditTimersViewController ()
 
@@ -98,7 +99,9 @@ int NUM_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
 // Passes data from selected row to RunTimerViewController
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // We'll probably want to do something here...
+    //if (sender != self.backBarButto)
+    EditSingleTimerViewController *destViewController = segue.destinationViewController;
+    destViewController.selectTimer = temptTimer;
 }
 
 /*

@@ -93,7 +93,7 @@ SystemSoundID alarmSound;
     
     _fetchedIntervalsArray = [selectTimer.instructions array];
     
-    [_miniTableView reloadData];// This SHOULD load them into the table, but something's up
+    [_miniTableView reloadData];
     
     ///hacky hack from SavedTimers
     [_miniTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];

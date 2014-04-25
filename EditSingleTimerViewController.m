@@ -7,12 +7,21 @@
 //
 
 #import "EditSingleTimerViewController.h"
+#import "Timer.h"
+#import "Interval.h"
+#import "AppDelegate.h"
 
 @interface EditSingleTimerViewController ()
+
+@property (nonatomic, strong) NSArray* fetchedIntervalsArray;
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @end
 
 @implementation EditSingleTimerViewController
+
+@synthesize selectTimer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,14 +34,53 @@
 
 - (void)viewDidLoad
 {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    _managedObjectContext = appDelegate.managedObjectContext;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Fetch instructions array when transitioning from SavedTimer
+    _fetchedIntervalsArray = [selectTimer.instructions array];
+    
+    [_instructionTable reloadData];
+    
+    //hacky hack from SavedTimers
+    [_instructionTable registerClass:[UITableViewCell class]forCellReuseIdentifier:@"Cell"];
+    
+    //Pre-populate text fields with timer name and repeats
+    _timerNameField.text = selectTimer.name;
+    _repeatNumber.text = [selectTimer.repeatCount stringValue];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//dealing with tableview
+-(NSInteger)numberOfSectionsInTableView: (UITableView *)tableView
+{
+    //return number of sections
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //return the number of rows in the section
+    return [_fetchedIntervalsArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    Interval* interval = [_fetchedIntervalsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, ID %@", interval.name, interval.id];
+    
+    return cell;
 }
 
 /*
