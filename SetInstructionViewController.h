@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveIntervalButtonBar;
 
 @property (nonatomic, retain) NSString *timerString;
+@property (nonatomic, retain) NSString * repeatString;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButtonBar;
 
