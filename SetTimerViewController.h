@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *intervalNameButton;
 
 @property (weak, nonatomic) NSString *savedTimerString;
+@property (weak, nonatomic) NSString *savedRepeatCount;
 
 @end

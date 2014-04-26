@@ -47,6 +47,7 @@
            forCellReuseIdentifier:@"Cell"];
     
     _timerName.text = _savedTimerString;
+    _timerRepeat.text = _savedRepeatCount;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *) timerField {
@@ -80,6 +81,7 @@
     {
         SetInstructionViewController *controller = (SetInstructionViewController *)segue.destinationViewController;
         controller.timerString = _timerName.text;
+        controller.repeatString = _timerRepeat.text;
     }
 }
 

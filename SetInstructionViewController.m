@@ -47,6 +47,7 @@
         
         SetTimerViewController *controller = (SetTimerViewController *)segue.destinationViewController;
         controller.savedTimerString = _timerString;
+        controller.savedRepeatCount = _repeatString;
         
     }
 }
