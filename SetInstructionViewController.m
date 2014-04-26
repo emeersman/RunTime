@@ -41,7 +41,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //will want a transition for saving instructions, as with saving timers
-    if (sender == self.saveIntervalButtonBar || sender == self.backButtonBar)
+    if (sender == self.saveIntervalButtonBar)
     {
         [self saveNewInstruction:sender];
         
@@ -49,6 +49,13 @@
         controller.savedTimerString = _timerString;
         controller.savedRepeatCount = _repeatString;
         
+    }
+    
+    if (sender == self.backButtonBar)
+    {
+        SetTimerViewController *controller = (SetTimerViewController *)segue.destinationViewController;
+        controller.savedTimerString = _timerString;
+        controller.savedRepeatCount = _repeatString;
     }
 }
 
