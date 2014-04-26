@@ -53,6 +53,23 @@
     _repeatNumber.text = [selectTimer.repeatCount stringValue];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (self.saveBarButton == sender)
+    {
+        //change fields to match!
+        selectTimer.name = _timerNameField.text;
+        int repeatNum = [_repeatNumber.text intValue];
+        selectTimer.repeatCount = [NSNumber numberWithInt:repeatNum];
+        
+        NSError * error;
+        
+        [_managedObjectContext save:&error];
+        [[_managedObjectContext parentContext] save:&error];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

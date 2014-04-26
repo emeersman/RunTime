@@ -10,6 +10,7 @@
 
 @interface EditTimersViewController : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backBarButton;
 
 
 @end
