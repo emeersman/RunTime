@@ -140,13 +140,10 @@ SystemSoundID alarmSound;
 // Depending on what instruction we're on, sets text field values for that instruction
 -(void) updateInstruction
 {
-    NSLog(@"%d",startedC);
-    
     if (currInstr == [selectTimer.instructions count])
     {
         if (repCountDown > 0)
         {
-            NSLog(@"Repeating timer");
             --repCountDown;
             _timerReps.text = [NSString stringWithFormat:@"%d",repCountDown];
             currInstr = 0;
@@ -263,7 +260,7 @@ SystemSoundID alarmSound;
     repCountDown = [selectTimer.repeatCount integerValue] - 1;
     
     _instrReps.text = [NSString stringWithFormat:@"%d",instrCountDown];
-    _timerReps.text = [NSString stringWithFormat:@"%d",repCountDown];
+    _timerReps.text = [NSString stringWithFormat:@"%d", MAX(repCountDown, 0)];
 
     
     secCountDownC = [_timerSec.text intValue];
