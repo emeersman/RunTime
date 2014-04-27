@@ -79,8 +79,8 @@ int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
     }
     
     Timer* timer = [_fetchedTimersArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",timer.name];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, ID %@", timer.name, timer.id];
+    cell.textLabel.text =
+        [NSString stringWithFormat:@"%@", timer.name];
     
     // Configure the cell...
     
