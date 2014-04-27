@@ -541,8 +541,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7uM-yG-DfA">
-                                <rect key="frame" x="217" y="518" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="44" y="532" width="231" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Reset Timer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -732,9 +733,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KUW-Nw-jLs"/>
-        <segue reference="8j7-rd-9yk"/>
-        <segue reference="IC0-KL-EBA"/>
+        <segue reference="o3d-Bp-F6W"/>
         <segue reference="e70-9q-hMJ"/>
+        <segue reference="IC0-KL-EBA"/>
+        <segue reference="8j7-rd-9yk"/>
     </inferredMetricsTieBreakers>
 </document>
