@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"timerString is %@", _timerString);
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     _managedObjectContext = appDelegate.managedObjectContext;
     [super viewDidLoad];

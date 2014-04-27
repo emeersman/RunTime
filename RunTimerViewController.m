@@ -194,7 +194,7 @@ SystemSoundID alarmSound;
         _timerHr.text = [tempInstr.hours stringValue];
         _timerMin.text = [tempInstr.minutes stringValue];
         _timerSec.text = [tempInstr.seconds stringValue];
-        _instrReps.text = [NSString stringWithFormat:@"d", MAX(instrCountDown, 0)];
+        _instrReps.text = [NSString stringWithFormat:@"%d", MAX(instrCountDown, 0)];
         
         secCountDownC = [_timerSec.text intValue];
         minCountDownC = [_timerMin.text intValue];
@@ -388,12 +388,42 @@ SystemSoundID alarmSound;
 // Reset button is pressed!
 - (IBAction)resetTimer:(id)sender {
     
-    NSLog(@"asldkfjalsdkfjalsdkjfsd");
     if(_currTimer){
         [_currTimer invalidate];
         _currTimer = nil;
     }
+    
+    // If we have these, we can't have us leave the page while the timer goes
+    secValueC = 0;
+    secCountDownC = 0;
+    minValueC = 0;
+    minCountDownC = 0;
+    hrValueC = 0;
+    hrCountDownC = 0;
+    instrValue = 0;
+    instrCountDown = 0;
+    repValue = 0;
+    repCountDown = 0;
+    startedC = NO;
+    alarmOnC = 0;
+    STATIC_CELLS = 1; //not a magic number! The "new" button.
     currInstr = 0;
+    
+    //_fetchedIntervalsArray = [selectTimer.instructions array];
+    
+    //[_miniTableView reloadData];
+    
+    ///hacky hack from SavedTimers
+    //[_miniTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    // Pre-populate text fields with timer name and repeats
+    _timerName.text = selectTimer.name;
+    _timerReps.text = [selectTimer.repeatCount stringValue];
+    
+    
+    [self updateInstruction];
+    
+    
 }
 
 // Just finished an instruction, create next timer

@@ -547,6 +547,9 @@
                                 <state key="normal" title="Reset Timer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetTimer:" destination="rDf-yg-W4X" eventType="touchUpInside" id="ORA-3x-dsh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=":" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N3t-U2-lsy">
                                 <rect key="frame" x="95" y="212" width="8" height="21"/>
@@ -576,7 +579,7 @@
                         <outlet property="instrId" destination="ISu-we-MlM" id="mIQ-Wp-4ax"/>
                         <outlet property="instrReps" destination="QV0-H1-EOv" id="GwH-Xw-zVI"/>
                         <outlet property="miniTableView" destination="RRp-RA-jsT" id="qSV-aL-dV4"/>
-                        <outlet property="resetTimer" destination="7uM-yG-DfA" id="4jp-kY-9CQ"/>
+                        <outlet property="resetTimer" destination="7uM-yG-DfA" id="IyL-kT-gyI"/>
                         <outlet property="timerHr" destination="ahK-oj-DUl" id="Xit-Zc-6ui"/>
                         <outlet property="timerMin" destination="VQN-Q9-gZL" id="KKA-36-A1U"/>
                         <outlet property="timerName" destination="4sR-5e-iCe" id="2z9-Wt-b1a"/>
