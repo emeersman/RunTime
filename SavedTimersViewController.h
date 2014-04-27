@@ -10,6 +10,7 @@
 
 @interface SavedTimersViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editBarButton;
-@property (weak, nonatomic) IBOutlet UINavigationItem *backBarButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backBarButton;
 
 @end
