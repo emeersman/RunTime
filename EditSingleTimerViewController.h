@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Timer.h"
+#import "AppDelegate.h"
 
 @interface EditSingleTimerViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate>
 
@@ -24,5 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *repeatNumber;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveBarButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end

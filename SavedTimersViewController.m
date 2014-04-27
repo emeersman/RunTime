@@ -97,7 +97,11 @@ int NUMBER_OF_STATIC_CELLS = 1; //not a magic number! The "new" button.
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // If the edit button is pressed, we don't need to create any new objects, just go to Edit Timers
-    if(sender != self.editBarButton)
+    if(sender == self.editBarButton || sender == self.backBarButton)
+    {
+        //do nothing
+    }
+    else
     {
         RunTimerViewController *destViewController = segue.destinationViewController;
         destViewController.selectTimer = tempTimer;

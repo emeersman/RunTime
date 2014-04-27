@@ -66,6 +66,14 @@
         
         [_managedObjectContext save:&error];
         [[_managedObjectContext parentContext] save:&error];
+        
+        //shrug
+    }
+    
+    if (sender == self.deleteButton)
+    {
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate deleteTimer:selectTimer.id];
     }
 }
 

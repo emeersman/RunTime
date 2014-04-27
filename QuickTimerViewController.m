@@ -45,7 +45,13 @@ SystemSoundID alarmSound;
     self.timerSec.delegate = self;
     self.timerHr.delegate = self;
     
+<<<<<<< HEAD
     NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"alarmSound" withExtension:@"caf"];
+=======
+    self.navigationItem.hidesBackButton = YES;
+    
+    NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
+>>>>>>> 501289fc0b5a28b88f134697e9b4240eaccbd272
     AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
     
     //_titleImage.image = [UIImage imageNamed:@"heman.jpg"];
