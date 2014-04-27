@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *instrReps;
 
 
+
 extern NSInteger secValueC;
 extern NSInteger minValueC;
 extern NSInteger hrValueC;
