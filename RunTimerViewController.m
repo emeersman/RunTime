@@ -145,7 +145,7 @@ SystemSoundID alarmSound;
         if (repCountDown > 0)
         {
             --repCountDown;
-            _timerReps.text = [NSString stringWithFormat:@"%d",repCountDown];
+            _timerReps.text = [NSString stringWithFormat:@"%d",MAX(repCountDown,0)];
             currInstr = 0;
             [self repeatTimer];
             return;
@@ -171,7 +171,7 @@ SystemSoundID alarmSound;
         instrCountDown = [tempInstr.repeatCount intValue] - 1;
         
         if (startedC)
-            _instrReps.text = [NSString stringWithFormat:@"%d",instrCountDown];
+            _instrReps.text = [NSString stringWithFormat:@"%d",MAX(instrCountDown,0)];
         else
             _instrReps.text = [tempInstr.repeatCount stringValue];
         
@@ -194,7 +194,7 @@ SystemSoundID alarmSound;
         _timerHr.text = [tempInstr.hours stringValue];
         _timerMin.text = [tempInstr.minutes stringValue];
         _timerSec.text = [tempInstr.seconds stringValue];
-        _instrReps.text = [@(instrCountDown) stringValue];
+        _instrReps.text = [NSString stringWithFormat:@"d", MAX(instrCountDown, 0)];
         
         secCountDownC = [_timerSec.text intValue];
         minCountDownC = [_timerMin.text intValue];
@@ -215,8 +215,8 @@ SystemSoundID alarmSound;
     instrCountDown = [tempInstr.repeatCount intValue] - 1;
     
 
-    _instrReps.text = [NSString stringWithFormat:@"%d",instrCountDown];
-    _timerReps.text = [NSString stringWithFormat:@"%d",repCountDown];
+    _instrReps.text = [NSString stringWithFormat:@"%d",MAX(instrCountDown,0)];
+    _timerReps.text = [NSString stringWithFormat:@"%d",MAX(repCountDown,0)];
 
     
     secCountDownC = [_timerSec.text intValue];
@@ -386,6 +386,8 @@ SystemSoundID alarmSound;
 
 // Reset button is pressed!
 - (IBAction)resetTimer:(id)sender {
+    
+    NSLog(@"asldkfjalsdkfjalsdkjfsd");
     if(_currTimer){
         [_currTimer invalidate];
         _currTimer = nil;
