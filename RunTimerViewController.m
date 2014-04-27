@@ -259,7 +259,7 @@ SystemSoundID alarmSound;
     instrCountDown = [firstInstr.repeatCount integerValue] - 1;
     repCountDown = [selectTimer.repeatCount integerValue] - 1;
     
-    _instrReps.text = [NSString stringWithFormat:@"%d",instrCountDown];
+    _instrReps.text = [NSString stringWithFormat:@"%d",MAX(instrCountDown, 0)];
     _timerReps.text = [NSString stringWithFormat:@"%d", MAX(repCountDown, 0)];
 
     
