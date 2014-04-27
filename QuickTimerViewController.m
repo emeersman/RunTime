@@ -45,6 +45,8 @@ SystemSoundID alarmSound;
     self.timerSec.delegate = self;
     self.timerHr.delegate = self;
     
+    self.navigationItem.hidesBackButton = YES;
+    
     NSURL *soundURL = [[NSBundle mainBundle]                                       URLForResource:@"alarmSound" withExtension:@"caf"];
     AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(soundURL), &alarmSound);
     
