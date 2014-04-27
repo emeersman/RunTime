@@ -186,7 +186,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KxL-iX-ABa">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KxL-iX-ABa" id="hHd-59-Yym">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -295,11 +295,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="20b-1A-bpA">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="ijT-K2-2BQ">
                             <connections>
                                 <segue destination="mnU-Xj-JZM" kind="push" id="9Pi-Gf-svD"/>
                             </connections>
                         </barButtonItem>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JwH-Gk-6Xr">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Delete">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <segue destination="mnU-Xj-JZM" kind="push" id="6QH-P8-Rjx"/>
+                            </connections>
+                        </button>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="FxP-6f-iS7">
                             <connections>
                                 <segue destination="mnU-Xj-JZM" kind="push" id="o3d-Bp-F6W"/>
@@ -307,6 +319,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteButton" destination="JwH-Gk-6Xr" id="oL8-SR-bdI"/>
                         <outlet property="instructionTable" destination="TK9-H1-wgO" id="9ac-jE-qdH"/>
                         <outlet property="repeatNumber" destination="e8n-Ia-3Ur" id="rum-89-HVo"/>
                         <outlet property="saveBarButton" destination="FxP-6f-iS7" id="oaa-s8-603"/>
@@ -327,7 +340,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="runSavedTimer" id="k9g-YE-kba">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k9g-YE-kba" id="hwS-7j-kLB">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -822,7 +835,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="KUW-Nw-jLs"/>
         <segue reference="8j7-rd-9yk"/>
-        <segue reference="CS9-tv-8xk"/>
+        <segue reference="che-6U-VID"/>
         <segue reference="e70-9q-hMJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -69,6 +69,12 @@
         
         //shrug
     }
+    
+    if (sender == self.deleteButton)
+    {
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate deleteTimer:selectTimer.id];
+    }
 }
 
 

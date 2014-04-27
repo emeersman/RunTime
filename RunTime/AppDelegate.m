@@ -325,5 +325,27 @@
     
 }
 
+-(void) deleteTimer:(NSNumber*)uniqueID {
+    NSArray * timers = [self getAllSavedTimers];
+    
+    int length = [timers count];
+    
+    for (int i = 0; i < length; i++)
+    {
+        if ( ((Timer*)timers[i]).id == uniqueID )
+        {
+            [_managedObjectContext deleteObject:timers[i]];
+            
+            NSError * error;
+            
+            [_managedObjectContext save:&error];
+            [[_managedObjectContext parentContext] save:&error];
+            
+            break;
+        }
+    }
+    
+}
+
 
 @end

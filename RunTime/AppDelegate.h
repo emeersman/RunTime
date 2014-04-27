@@ -24,5 +24,6 @@
 -(int) getUniqueIDInterval;
 
 -(void) deleteUnlinkedIntervals;
+-(void) deleteTimer:(NSNumber*)uniqueID;
 
 @end
